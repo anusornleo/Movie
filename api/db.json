@@ -1,0 +1,31 @@
+{
+  "movie_list": [
+    {
+      "id": 1,
+      "title": "Avenger End Game 2 line",
+      "poster": "https://terrigen-cdn-dev.marvel.com/content/prod/2x/MLou2_Teaser_1-Sht_v6_Lg.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Avenger End Game",
+      "poster": "https://terrigen-cdn-dev.marvel.com/content/prod/2x/MLou2_Teaser_1-Sht_v6_Lg.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Avenger End Game",
+      "poster": "https://terrigen-cdn-dev.marvel.com/content/prod/2x/MLou2_Teaser_1-Sht_v6_Lg.jpg"
+    },{
+      "id": 4,
+      "title": "Avenger End Game 2 line",
+      "poster": "https://terrigen-cdn-dev.marvel.com/content/prod/2x/MLou2_Teaser_1-Sht_v6_Lg.jpg"
+    },{
+      "id": 5,
+      "title": "Avenger End Game",
+      "poster": "https://terrigen-cdn-dev.marvel.com/content/prod/2x/MLou2_Teaser_1-Sht_v6_Lg.jpg"
+    },{
+      "id": 6,
+      "title": "Avenger End Game 2 line",
+      "poster": "https://terrigen-cdn-dev.marvel.com/content/prod/2x/MLou2_Teaser_1-Sht_v6_Lg.jpg"
+    }
+  ]
+}
