@@ -6,4 +6,4 @@
 - When Vue start Server. You can Access by URL "localhost:8080"
 #Other details
 - When you want open Project again. Do method 2 - 4 again. OK?
-- If you have any Question ทักกูมา โอเค?
+- If you have any Question ทักเฟสกูมา ไม่ต้องเมลหรือไลน์มา กูไม่อ่านนนน?
