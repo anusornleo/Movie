@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
+import Login from '@/components/Login'
+import Signin from '@/components/Signin'
 import Main from '@/components/MainMenu'
 import Detail from '@/components/Detail'
 
@@ -10,8 +11,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: Home
+      name: 'Login',
+      component: Login
     },
     {
       path: '/main',
@@ -23,6 +24,12 @@ export default new Router({
       path: '/detail',
       name: 'Detail',
       component: Detail
+    },
+    {
+      path: '/signin',
+      name: 'Signin',
+      component: Signin
     }
+    
   ]
 })

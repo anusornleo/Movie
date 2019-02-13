@@ -1,0 +1,68 @@
+<!-- src/components/Home.vue -->
+<template>
+  <div class="bg bg-dark">
+    <nav class="navbar navbar-light bg-info">
+      <a class="navbar-brand text-white" href="#">Navbar</a>
+    </nav>
+    <div class="container">
+      <div class="card card_custom">
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+              >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                placeholder="Password"
+              >
+            </div>
+            <button type="submit" class="btn bg-info text-white">Submit</button>
+            <a class="text-info text-to-signin" @click="goSignin"><small><u>If you don't have any account. Create it.</u></small></a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "SignIn",
+  methods: {
+    goSignin: function() {
+      this.$router.push("/signin");
+    }
+  }
+};
+</script>
+
+<style>
+.card_custom {
+  width: 30rem;
+  margin: auto;
+  top: 11rem;
+}
+.container {
+  padding: 0;
+  height: -webkit-fill-available;
+}
+.navbar {
+  width: -webkit-fill-available;
+  position: absolute;
+}
+.text-to-signin{
+  margin-left: 140px;
+  cursor: pointer;
+}
+</style>
