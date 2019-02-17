@@ -1,0 +1,193 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Hind+Madurai" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Hind Madurai', sans-serif;
+            background-color: rgb(3, 3, 14);
+            margin: 0px;
+        }
+
+        .w3-left,
+        .w3-right,
+        .w3-badge {
+            cursor: pointer
+        }
+
+        .w3-badge {
+            height: 13px;
+            width: 13px;
+            padding: 0
+        }
+
+        .mySlides {
+            margin: 0px;
+            width: 100%;
+            height: 400px;
+            display: none;
+        }
+
+        .w3-section,
+        .w3-code {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .container {
+            margin-left: 12em;
+            margin-right: 5em;
+            margin-bottom: 0.5em;
+            padding: 3em 7em 3em 7em;
+            background-color: rgba(78, 78, 206, 0.493);
+            border-radius: 20px;
+        }
+
+        .movie-list {
+            width: 100%;
+            height: 500px;
+        }
+
+        
+        hr {
+            margin-top: -2.11em;
+            margin-left: 15%;
+            width: 83%;
+            border: 2px solid rgba(78, 78, 206, 0.493);
+            border-radius: 5px;
+        }
+
+        /* pointer shape */
+        .head-title {
+            display: -webkit-inline;
+            margin-left: 4em;
+            
+        }
+
+        .head-title-text {
+            color: white;
+            text-shadow: 0 0 30px rgb(3, 3, 14);
+        }
+
+        #pointer {
+            width: 200px;
+            height: 40px;
+            position: relative;
+            background: rgba(78, 78, 206, 0.493);
+        }
+
+        #pointer:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-left: 20px solid rgb(3, 3, 14);
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+        }
+
+        #pointer:before {
+            content: "";
+            position: absolute;
+            right: -20px;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-left: 20px solid rgba(78, 78, 206, 0.493);
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Logo Cinema</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li> -->
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search Movie" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="w3-content" style="max-width:100%">
+        <img class="mySlides" src="img/starwar_banner.jpg">
+        <img class="mySlides" src="img/miraclesfromheaven_banner.jpg">
+        <img class="mySlides" src="img/ragamuffin.jpg">
+    </div>
+
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 4000); // Change image every 4 seconds
+        }
+    </script>
+    <br><br>
+    <!--                         Movie List                        -->
+    <div class="head-title">
+        <h1 class="head-title-Text" id="pointer">&nbsp;&nbsp;&nbsp;ภาพยนตร์</h1>
+        <hr>
+    </div>
+    <br>
+    <div class="container">
+        <img class="movie-list" src="img/thor_banner.jpg">
+    </div>
+    <br>
+</body>
+
+</html>
