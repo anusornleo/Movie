@@ -1,32 +1,16 @@
-# test_vue
+### How to Openfile
+- Check NPM, If you don't have NPM. Install Node.js and run Node.js command.(or set Node.js in environment path if you use CMD)
+- Install Vue.js by Command
 
-> A Vue.js project
+     `$ npm install -g vue-cli`
 
-## Build Setup
+- After install Vue.js. Clone The Project to your computer.     
+- Type Command and go to foder of this Project.(or you use file explorer in Windows 10. Click File>Open Windows PowerShell) and type
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-# MovieWebProject
-# Movie
+     `$ npm run dev`
+ 
+- Wait to Vue start Server.
+- When Vue start Server. You can Access by URL "localhost:8080"
+### Other details
+- When you want open Project again. Do method 4 - 6 again. OK?
+- If you have any Question ทักเฟสกูมา ไม่ต้องเมลหรือไลน์มา กูไม่อ่านนนน
