@@ -1,9 +1,22 @@
 <!-- src/components/Home.vue -->
 <template>
   <div class="bg bg-dark">
-    <nav class="navbar navbar-light bg-info">
+    <!-- <nav class="navbar navbar-light bg-info">
       <a class="navbar-brand text-white" href="#">Navbar</a>
+    </nav> -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Logo Cinema</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </nav>
+
     <div class="container">
       <div class="card card_custom">
         <div class="card-body">
