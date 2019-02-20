@@ -48,33 +48,56 @@
         }
 
         .container {
+            width: 100em;
             margin-left: 12em;
             margin-right: 5em;
             margin-bottom: 0.5em;
             padding: 3em 7em 3em 7em;
-            background-color: rgba(78, 78, 206, 0.493);
+            background-color: rgb(182, 182, 182);
             border-radius: 20px;
         }
 
-        .movie-list {
-            width: 100%;
-            height: 500px;
+        .img-container {
+            position: relative;
+            margin-bottom: 0px;
         }
 
-        
-        hr {
+        .movie-list {
+            display: block;
+            width: 100%;
+            height: 26em;
+            border: 5px solid black;
+            border-bottom: 0px;
+            border-radius: 15px 15px 0px 0px;
+            margin-bottom: 0px;
+        }
+
+
+
+        .detail-container {
+            height: 4em;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            background-color: rgb(32, 29, 29);
+            border: 5px solid black;
+            border-radius: 0px 0px 15px 15px;
+            border-top: 0;
+
+        }
+
+        /* hr {
             margin-top: -2.11em;
             margin-left: 15%;
             width: 83%;
             border: 2px solid rgba(78, 78, 206, 0.493);
             border-radius: 5px;
-        }
+        } */
 
         /* pointer shape */
         .head-title {
             display: -webkit-inline;
             margin-left: 4em;
-            
+
         }
 
         .head-title-text {
@@ -111,6 +134,46 @@
             border-left: 20px solid rgba(78, 78, 206, 0.493);
             border-top: 20px solid transparent;
             border-bottom: 20px solid transparent;
+        }
+
+        /* -------------------BTN---------------------- */
+        .btn {
+            margin: 0.8em 0em 0.8em 1em;
+        }
+
+        .btn-buy-ticket {
+            position: relative;
+            z-index: 2;
+            margin-left: 23.5em;
+        }
+
+        /* ----------------Overlay--------------------- */
+        #overlay {
+            position: absolute;
+            /* Sit on top of the page content */
+            display: none;
+            /* Hidden by default */
+            border-radius: 15px 15px 0px 0px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 60;
+            background-color: rgba(0, 0, 0, 0.8);
+            /* Black background with opacity */
+            z-index: 3;
+            /* Specify a stack order in case you're using a different order for other elements */
+            cursor: pointer;
+            /* Add a pointer on hover */
+        }
+
+        #text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 20px;
+            color: white;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
         }
     </style>
 </head>
@@ -160,7 +223,69 @@
         <img class="mySlides" src="img/miraclesfromheaven_banner.jpg">
         <img class="mySlides" src="img/ragamuffin.jpg">
     </div>
-
+    <br><br>
+    <!--                         Movie List                        -->
+    <!-- <div class="head-title">
+        <h1 class="head-title-Text" id="pointer">&nbsp;&nbsp;&nbsp;ภาพยนตร์</h1>
+        <hr>
+    </div> -->
+    <br>
+    <div class="container">
+        <div class="img-container">
+            <img onclick="on()" class="movie-list" src="img/ragamuffin.jpg" alt="Click to see review">
+            <div class="detail-container">
+                <button type="button" class="btn btn-outline-light">9.00AM.-11.30 AM.</button>
+                <button type="button" class="btn btn-outline-light">12.10PM.-2.40 PM.</button>
+                <button type="button" class="btn btn-outline-light">3.00PM.-5.30 PM.</button>
+                <button type="button" class="btn btn-buy-ticket btn-light">Buy Ticket</button>
+            </div>
+            <div id="overlay" onclick="off()">
+                <h3 id="text">Short Review: <p>&nbsp;&nbsp;&nbsp;This is Review Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, enim laboriosam quae impedit dolorum veritatis eveniet repellendus dolore tempore harum consequatur. Error, odio? Dolorum aliquam vel non molestiae, facilis eligendi?</p></h3>
+            </div>
+        </div>
+        <div class="img-container">
+            <img onclick="on()" class="movie-list" src="img/thor_banner.jpg">
+            <div class="detail-container">
+                <button type="button" class="btn btn-outline-light">9.00AM.-11.30 AM.</button>
+                <button type="button" class="btn btn-outline-light">12.10PM.-2.40 PM.</button>
+                <button type="button" class="btn btn-outline-light">3.00PM.-5.30 PM.</button>
+                <button type="button" class="btn btn-buy-ticket btn-light">Buy Ticket</button>
+            </div>
+            <div id="overlay" onclick="off()">
+                <h3 id="text">Short Review: <p>This is Review</p>
+                </h3>
+            </div>
+        </div>
+        <div class="img-container">
+            <img onclick="on()" class="movie-list" src="img/starwar_banner.jpg">
+            <div class="detail-container">
+                <button type="button" class="btn btn-outline-light">9.00AM.-11.30 AM.</button>
+                <button type="button" class="btn btn-outline-light">12.10PM.-2.40 PM.</button>
+                <button type="button" class="btn btn-outline-light">3.00PM.-5.30 PM.</button>
+                <button type="button" class="btn btn-buy-ticket btn-light">Buy Ticket</button>
+            </div>
+            <div id="overlay" onclick="off()">
+                <p id="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut esse eius, sit rerum sint
+                    voluptate cum
+                </p>
+            </div>
+        </div>
+        <div class="img-container">
+            <img onclick="on()" class="movie-list" src="img/miraclesfromheaven_banner.jpg">
+            <div class="detail-container">
+                <button type="button" class="btn btn-outline-light">9.00AM.-11.30 AM.</button>
+                <button type="button" class="btn btn-outline-light">12.10PM.-2.40 PM.</button>
+                <button type="button" class="btn btn-outline-light">3.00PM.-5.30 PM.</button>
+                <button type="button" class="btn btn-buy-ticket btn-light">Buy Ticket</button>
+            </div>
+            <div id="overlay" onclick="off()">
+                <p id="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut esse eius, sit rerum sint
+                    voluptate cum
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
     <script>
         var myIndex = 0;
         carousel();
@@ -176,18 +301,15 @@
             x[myIndex - 1].style.display = "block";
             setTimeout(carousel, 4000); // Change image every 4 seconds
         }
+
+        function on() {
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function off() {
+            document.getElementById("overlay").style.display = "none";
+        }
     </script>
-    <br><br>
-    <!--                         Movie List                        -->
-    <div class="head-title">
-        <h1 class="head-title-Text" id="pointer">&nbsp;&nbsp;&nbsp;ภาพยนตร์</h1>
-        <hr>
-    </div>
-    <br>
-    <div class="container">
-        <img class="movie-list" src="img/thor_banner.jpg">
-    </div>
-    <br>
 </body>
 
 </html>
