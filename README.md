@@ -13,4 +13,8 @@
 - When Vue start Server. You can Access by URL "localhost:8080"
 ### Other details
 - When you want open Project again. Do method 4 - 6 again. OK?
+- If you run Project first time. You should install npm again
+
+     `$ npm install`
+ 
 - If you have any Question ทักเฟสกูมา ไม่ต้องเมลหรือไลน์มา กูไม่อ่านนนน
