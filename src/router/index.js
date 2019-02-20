@@ -4,6 +4,7 @@ import Login from '@/components/Login'
 import Signin from '@/components/Signin'
 import Main from '@/components/MainMenu'
 import Detail from '@/components/Detail'
+import Home from '@/components/home'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/signin',
       name: 'Signin',
       component: Signin
+    },
+    {
+      path: '/home',
+      name: 'Home',
+      component: Home
     }
     
   ]
