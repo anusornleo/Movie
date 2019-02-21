@@ -7,6 +7,7 @@ import Detail from '@/components/Detail'
 import Home from '@/components/home'
 import Select from '@/components/Select'
 import Seat from '@/components/Seat'
+import Slideshow from '@/components/slideshow'
 
 // add ************************************************
 import FieldList from '@/components/FieldList'
@@ -52,6 +53,11 @@ export default new Router({
       path: '/seat',
       name: 'Seat',
       component: Seat
+    },
+    {
+      path: '/slideshow',
+      name: 'Slideshow',
+      component: Slideshow
     },
 
     // add ****************************************************

@@ -22,23 +22,6 @@
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <!-- <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>-->
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input
@@ -51,6 +34,7 @@
         </form>
       </div>
     </nav>
+    <slideshow></slideshow>
 
     <div class="w3-content" style="max-width:100%">
       <img class="mySlides" src="img/starwar_banner.jpg">
@@ -59,69 +43,24 @@
     </div>
     <br>
     <br>
-    <!--                         Movie List                        -->
-    <!-- <div class="head-title">
-        <h1 class="head-title-Text" id="pointer">&nbsp;&nbsp;&nbsp;ภาพยนตร์</h1>
-        <hr>
-    </div>-->
     <br>
-    <div class="container">
-      <div class="img-container">
-        <img onclick="on()" class="movie-list" src="https://lh3.googleusercontent.com/8Nb17-RgjEf0rkZn36nDoUGaSuTBc59oSFfp2gP_gxmxpCrylzOWm2IZs8fyu8o-vALEQV8T_ixH_NuvRsD8tuitQMIX6c1Fqo7hllHaoQKDDccPE5ai4_ooZRyxaB083Z_VqAf2Cd3yDYxzrKC2Z-nCCSIjcMNFm4jdVkqESYi6c1siX2pxzApQ9TdHouZAj6ssUNiNBGPZpFFBBz8TFNxg9YPCEvj_O3YflzJj6OOTZyeXLGLN1lGnxn97H1l0cm1rijF41KwD_ramcJKV9yX80jsbzPbEj-EWe8dntDTYtJOlvmsz6nAM1_JSOBQmpa7QNPJ7AXAr86CEF_XEfPpLHeTnSW7BiW9Q_TLzFr-ylcpUjSLuZ7ux8-3KxkYOohdUbrQf200i3M0CaCf0SmWzAALCRnpAxaOJohLkX-cqBMFndUbfxItslqlM3edlV0Jj5I6HzhMI_PMV1PpBKlcELj5kq_ZVGXzkoL6TT1fqJ7bAjKvLCCcNu5EzDV0HKLSA8E3qfYwaNiynljV0dt2RozVD8dPXcN5CdsGm8fSKqz97Vrf8yJecduOfZhqL2KTgCZwvT0iuhdEqt-eQGFmsf3wsM-5Aq2V0N0chcIIjOfDdrI3ltfIXq0e_AESkRwGoVNdg1El-cA2_8lf9N7iIlpVQfls=w1920-h600-no" alt="Click to see review">
+    <div class="container" style="padding: 25px;">
+      <h2>Show Now</h2><br>
+      <div v-for="movie in movie_list" :key="movie.id" class="img-container">
+        <img @click="on" class="movie-list" v-bind:src="movie.poster" alt="Click to see review">
         <div class="detail-container">
-          <button type="button" class="btn btn-outline-light">9.00AM.-11.30 AM.</button>
-          <button type="button" class="btn btn-outline-light">12.10PM.-2.40 PM.</button>
-          <button type="button" class="btn btn-outline-light">3.00PM.-5.30 PM.</button>
+          <button
+            v-for="times in movie.all_time"
+            :key="times.id"
+            type="button"
+            class="btn btn-outline-light"
+          >{{times.time}}</button>
           <button type="button" class="btn btn-buy-ticket btn-light">Buy Ticket</button>
         </div>
-        <div id="overlay" onclick="off()">
+        <div id="overlay" @click="off">
           <h3 id="text">Short Review:
             <p>&nbsp;&nbsp;&nbsp;This is Review Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, enim laboriosam quae impedit dolorum veritatis eveniet repellendus dolore tempore harum consequatur. Error, odio? Dolorum aliquam vel non molestiae, facilis eligendi?</p>
           </h3>
-        </div>
-      </div>
-      <div class="img-container">
-        <img onclick="on()" class="movie-list" src="img/thor_banner.jpg">
-        <div class="detail-container">
-          <button type="button" class="btn btn-outline-light">9.00AM.-11.30 AM.</button>
-          <button type="button" class="btn btn-outline-light">12.10PM.-2.40 PM.</button>
-          <button type="button" class="btn btn-outline-light">3.00PM.-5.30 PM.</button>
-          <button type="button" class="btn btn-buy-ticket btn-light">Buy Ticket</button>
-        </div>
-        <div id="overlay" onclick="off()">
-          <h3 id="text">Short Review:
-            <p>This is Review</p>
-          </h3>
-        </div>
-      </div>
-      <div class="img-container">
-        <img onclick="on()" class="movie-list" src="img/starwar_banner.jpg">
-        <div class="detail-container">
-          <button type="button" class="btn btn-outline-light">9.00AM.-11.30 AM.</button>
-          <button type="button" class="btn btn-outline-light">12.10PM.-2.40 PM.</button>
-          <button type="button" class="btn btn-outline-light">3.00PM.-5.30 PM.</button>
-          <button type="button" class="btn btn-buy-ticket btn-light">Buy Ticket</button>
-        </div>
-        <div id="overlay" onclick="off()">
-          <p id="text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut esse eius, sit rerum sint
-            voluptate cum
-          </p>
-        </div>
-      </div>
-      <div class="img-container">
-        <img onclick="on()" class="movie-list" src="img/miraclesfromheaven_banner.jpg">
-        <div class="detail-container">
-          <button type="button" class="btn btn-outline-light">9.00AM.-11.30 AM.</button>
-          <button type="button" class="btn btn-outline-light">12.10PM.-2.40 PM.</button>
-          <button type="button" class="btn btn-outline-light">3.00PM.-5.30 PM.</button>
-          <button type="button" class="btn btn-buy-ticket btn-light">Buy Ticket</button>
-        </div>
-        <div id="overlay" onclick="off()">
-          <p id="text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut esse eius, sit rerum sint
-            voluptate cum
-          </p>
         </div>
       </div>
     </div>
@@ -130,13 +69,56 @@
 </template>
 
 <script>
-export default {};
+import Slideshow from "@/components/slideshow";
+export default {
+  components: {
+    Slideshow
+  },
+  data() {
+    return {
+      movie_list: [
+        {
+          poster:
+            "https://lh3.googleusercontent.com/8Nb17-RgjEf0rkZn36nDoUGaSuTBc59oSFfp2gP_gxmxpCrylzOWm2IZs8fyu8o-vALEQV8T_ixH_NuvRsD8tuitQMIX6c1Fqo7hllHaoQKDDccPE5ai4_ooZRyxaB083Z_VqAf2Cd3yDYxzrKC2Z-nCCSIjcMNFm4jdVkqESYi6c1siX2pxzApQ9TdHouZAj6ssUNiNBGPZpFFBBz8TFNxg9YPCEvj_O3YflzJj6OOTZyeXLGLN1lGnxn97H1l0cm1rijF41KwD_ramcJKV9yX80jsbzPbEj-EWe8dntDTYtJOlvmsz6nAM1_JSOBQmpa7QNPJ7AXAr86CEF_XEfPpLHeTnSW7BiW9Q_TLzFr-ylcpUjSLuZ7ux8-3KxkYOohdUbrQf200i3M0CaCf0SmWzAALCRnpAxaOJohLkX-cqBMFndUbfxItslqlM3edlV0Jj5I6HzhMI_PMV1PpBKlcELj5kq_ZVGXzkoL6TT1fqJ7bAjKvLCCcNu5EzDV0HKLSA8E3qfYwaNiynljV0dt2RozVD8dPXcN5CdsGm8fSKqz97Vrf8yJecduOfZhqL2KTgCZwvT0iuhdEqt-eQGFmsf3wsM-5Aq2V0N0chcIIjOfDdrI3ltfIXq0e_AESkRwGoVNdg1El-cA2_8lf9N7iIlpVQfls=w1920-h600-no",
+          text: "",
+          all_time: [{ time: "10:10" }, { time: "11:30" }, { time: "14:20" }]
+        },
+        {
+          poster:
+            "https://www.joblo.com/assets/images/oldsite/posters/images/full/interstellar-banner.jpg",
+          text: "",
+          all_time: [{ time: "10:10" }, { time: "11:30" }, { time: "14:20" }]
+        },
+        {
+          poster:
+            "https://lh3.googleusercontent.com/8Nb17-RgjEf0rkZn36nDoUGaSuTBc59oSFfp2gP_gxmxpCrylzOWm2IZs8fyu8o-vALEQV8T_ixH_NuvRsD8tuitQMIX6c1Fqo7hllHaoQKDDccPE5ai4_ooZRyxaB083Z_VqAf2Cd3yDYxzrKC2Z-nCCSIjcMNFm4jdVkqESYi6c1siX2pxzApQ9TdHouZAj6ssUNiNBGPZpFFBBz8TFNxg9YPCEvj_O3YflzJj6OOTZyeXLGLN1lGnxn97H1l0cm1rijF41KwD_ramcJKV9yX80jsbzPbEj-EWe8dntDTYtJOlvmsz6nAM1_JSOBQmpa7QNPJ7AXAr86CEF_XEfPpLHeTnSW7BiW9Q_TLzFr-ylcpUjSLuZ7ux8-3KxkYOohdUbrQf200i3M0CaCf0SmWzAALCRnpAxaOJohLkX-cqBMFndUbfxItslqlM3edlV0Jj5I6HzhMI_PMV1PpBKlcELj5kq_ZVGXzkoL6TT1fqJ7bAjKvLCCcNu5EzDV0HKLSA8E3qfYwaNiynljV0dt2RozVD8dPXcN5CdsGm8fSKqz97Vrf8yJecduOfZhqL2KTgCZwvT0iuhdEqt-eQGFmsf3wsM-5Aq2V0N0chcIIjOfDdrI3ltfIXq0e_AESkRwGoVNdg1El-cA2_8lf9N7iIlpVQfls=w1920-h600-no",
+          text: "",
+          all_time: [{ time: "10:10" }, { time: "11:30" }, { time: "14:20" }]
+        }
+      ]
+    };
+  },
+  methods: {
+    on: function() {
+      console.log("on");
+    },
+    off: function() {
+      console.log("off");
+    }
+  }
+};
 </script>
 
 <style scoped>
+@media (min-width: 1000px) {
+  .container {
+    max-width: 1060px;
+    border-radius: 36px;
+  }
+}
+
 .body_ton {
-  font-family: "Hind Madurai", sans-serif;
-  background-color: rgb(3, 3, 14);
+  background-color: rgb(41, 41, 41);
   margin: 0px;
 }
 
@@ -166,12 +148,8 @@ export default {};
 }
 
 .container {
-  width: 100em;
-  margin-left: 12em;
-  margin-right: 5em;
-  margin-bottom: 0.5em;
   padding: 3em 7em 3em 7em;
-  background-color: rgb(182, 182, 182);
+  background-color: rgb(243, 243, 243);
   border-radius: 20px;
 }
 
@@ -184,9 +162,9 @@ export default {};
   display: block;
   width: 100%;
   height: 26em;
-  border: 5px solid black;
+  border: 6px solid rgb(44, 44, 44);
   border-bottom: 0px;
-  border-radius: 15px 15px 0px 0px;
+  border-radius: 20px 20px 0px 0px;
   margin-bottom: 0px;
 }
 
@@ -196,7 +174,7 @@ export default {};
   margin-bottom: 10px;
   background-color: rgb(32, 29, 29);
   border: 5px solid black;
-  border-radius: 0px 0px 15px 15px;
+  border-radius: 0px 0px 20px 20px;
   border-top: 0;
 }
 
@@ -252,13 +230,20 @@ export default {};
 
 /* -------------------BTN---------------------- */
 .btn {
-  margin: 0.8em 0em 0.8em 1em;
+  margin: 0.8em 10px 0.8em 5px;
 }
 
 .btn-buy-ticket {
-  position: relative;
-  z-index: 2;
-  
+  position: absolute;
+  margin-left: 614px;
+  border-radius: 10px;
+}
+
+.btn-outline-light {
+  border-radius: 10px;
+  border: 1.7px solid white;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* ----------------Overlay--------------------- */
