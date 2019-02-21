@@ -1,0 +1,517 @@
+<!-- src/components/Home.vue -->
+<template>
+  <div class="bg bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Logo Cinema</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">
+              Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="card card_custom">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-4">
+              <img
+                class="portait_poster"
+                src="https://media1.popsugar-assets.com/files/thumbor/G8WL9ct5Wo7q7Zaug8dd99GptbY/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2018/07/16/938/n/1922283/d757511d5b4d0eb588dbe8.16610880_/i/Aquaman-Movie-Poster-Memes-July-2018.jpg"
+              >
+            </div>
+            <div class="col-5">
+              <h1>Title Movie</h1>
+              <p class="text-muted">Location latkabang | Thratre 1
+                <br>Date 00 FEB 9999 | Time xx:xx
+              </p>
+              <div class="group_seat">
+                <p
+                  class="text-muted"
+                  style="text-align: center;font-size:18px;letter-spacing: 15px;"
+                >SCREEN</p>
+                <hr>
+                <label class="switch" v-for="seat in seats" :key="seat.id">
+                  <input type="checkbox" :id="seat" :value="seat" v-model="seat_select">
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <span>select{{ seat_select }}</span>
+            </div>
+            <div class="col-3">
+              <div class="c1">
+                <div class="c2">
+                  <h4 class="no_select">{{no_seat}}</h4>
+
+                  <!-- box show selected seat -->
+                  <div
+                    class="card"
+                    style="margin-bottom: 10px; width:245px"
+                    v-for="(seat_s) in seat_select"
+                    :key="seat_s.id"
+                  >
+                    <div v-bind:style= "seat_s.type === '1' ? {backgroundColor: 'rgb(204, 255, 204)'} : {backgroundColor: 'rgb(153, 204, 255)'}" class="card-body">
+                      <h4>{{seat_s.num}}</h4>
+                      <select v-model="seat_s.type" class="custom-select">
+                        <option selected value="1">Adult</option>
+                        <option value="2">Child</option>
+                      </select>
+                      <a>{{seat_s.type}}</a>
+                    </div>
+                  </div>
+                  <!-- box show selected seat -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Select",
+  data() {
+    return {
+      seats: [
+        {
+          num: "F1",
+          type: "1"
+        },
+        {
+          num: "F2",
+          type: "1"
+        },
+        {
+          num: "F3",
+          type: "1"
+        },
+        {
+          num: "F4",
+          type: "1"
+        },
+        {
+          num: "F5",
+          type: "1"
+        },
+        {
+          num: "F6",
+          type: "1"
+        },
+        {
+          num: "F7",
+          type: "1"
+        },
+        {
+          num: "F8",
+          type: "1"
+        },
+        {
+          num: "F9",
+          type: "1"
+        },
+        {
+          num: "F10",
+          type: "1"
+        },
+        {
+          num: "E1",
+          type: "1"
+        },
+        {
+          num: "E2",
+          type: "1"
+        },
+        {
+          num: "E3",
+          type: "1"
+        },
+        {
+          num: "E4",
+          type: "1"
+        },
+        {
+          num: "E5",
+          type: "1"
+        },
+        {
+          num: "E6",
+          type: "1"
+        },
+        {
+          num: "E7",
+          type: "1"
+        },
+        {
+          num: "E8",
+          type: "1"
+        },
+        {
+          num: "E9",
+          type: "1"
+        },
+        {
+          num: "E10",
+          type: "1"
+        },
+        {
+          num: "D1",
+          type: "1"
+        },
+        {
+          num: "D2",
+          type: "1"
+        },
+        {
+          num: "D3",
+          type: "1"
+        },
+        {
+          num: "D4",
+          type: "1"
+        },
+        {
+          num: "D5",
+          type: "1"
+        },
+        {
+          num: "D6",
+          type: "1"
+        },
+        {
+          num: "D7",
+          type: "1"
+        },
+        {
+          num: "D8",
+          type: "1"
+        },
+        {
+          num: "D9",
+          type: "1"
+        },
+        {
+          num: "D10",
+          type: "1"
+        },
+        {
+          num: "C1",
+          type: "1"
+        },
+        {
+          num: "C2",
+          type: "1"
+        },
+        {
+          num: "C3",
+          type: "1"
+        },
+        {
+          num: "C4",
+          type: "1"
+        },
+        {
+          num: "C5",
+          type: "1"
+        },
+        {
+          num: "C6",
+          type: "1"
+        },
+        {
+          num: "C7",
+          type: "1"
+        },
+        {
+          num: "C8",
+          type: "1"
+        },
+        {
+          num: "C9",
+          type: "1"
+        },
+        {
+          num: "C10",
+          type: "1"
+        },
+        {
+          num: "B1",
+          type: "1"
+        },
+        {
+          num: "B2",
+          type: "1"
+        },
+        {
+          num: "B3",
+          type: "1"
+        },
+        {
+          num: "B4",
+          type: "1"
+        },
+        {
+          num: "B5",
+          type: "1"
+        },
+        {
+          num: "B6",
+          type: "1"
+        },
+        {
+          num: "B7",
+          type: "1"
+        },
+        {
+          num: "B8",
+          type: "1"
+        },
+        {
+          num: "B9",
+          type: "1"
+        },
+        {
+          num: "B10",
+          type: "1"
+        },
+        {
+          num: "A1",
+          type: "1"
+        },
+        {
+          num: "A2",
+          type: "1"
+        },
+        {
+          num: "A3",
+          type: "1"
+        },
+        {
+          num: "A4",
+          type: "1"
+        },
+        {
+          num: "A5",
+          type: "1"
+        },
+        {
+          num: "A6",
+          type: "1"
+        },
+        {
+          num: "A7",
+          type: "1"
+        },
+        {
+          num: "A8",
+          type: "1"
+        },
+        {
+          num: "A9",
+          type: "1"
+        },
+        {
+          num: "A10",
+          type: "1"
+        }
+        // "F1",
+        // "F2",
+        // "F3",
+        // "F4",
+        // "F5",
+        // "F6",
+        // "F7",
+        // "F8",
+        // "F9",
+        // "F10",
+        // "E1",
+        // "E2",
+        // "E3",
+        // "E4",
+        // "E5",
+        // "E6",
+        // "E7",
+        // "E8",
+        // "E9",
+        // "E10",
+        // "D1",
+        // "D2",
+        // "D3",
+        // "D4",
+        // "D5",
+        // "D6",
+        // "D7",
+        // "D8",
+        // "D9",
+        // "D10",
+        // "C1",
+        // "C2",
+        // "C3",
+        // "C4",
+        // "C5",
+        // "C6",
+        // "C7",
+        // "C8",
+        // "C9",
+        // "C10",
+        // "B1",
+        // "B2",
+        // "B3",
+        // "B4",
+        // "B5",
+        // "B6",
+        // "B7",
+        // "B8",
+        // "B9",
+        // "B10",
+        // "A1",
+        // "A2",
+        // "A3",
+        // "A4",
+        // "A5",
+        // "A6",
+        // "A7",
+        // "A8",
+        // "A9",
+        // "A10"
+      ],
+      seat_select: [],
+      type: [],
+      type_seat: [],
+      styleObject: {
+        backgroundColor: 'rgb(255, 204, 204)',
+      }
+    };
+  },
+  methods: {},
+  computed: {
+    no_seat: function() {
+     
+      return this.seat_select.length === 0 ? "No Select" : "";
+    }
+  }
+};
+</script>
+
+<style scoped>
+@media (min-width: 1000px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+.card_custom {
+  width: auto;
+  margin: auto;
+  top: 4rem;
+  border-radius: 15px;
+}
+.container {
+  padding: 0;
+  height: -webkit-fill-available;
+}
+.navbar {
+  width: -webkit-fill-available;
+  position: absolute;
+}
+.portait_poster {
+  width: 373px;
+  height: 550px;
+  border-radius: 10px;
+}
+.group_seat {
+  margin-top: 40px;
+  width: 402px;
+}
+.col-5 {
+  padding-left: 3rem;
+}
+.text-muted {
+  font-size: 1.2rem;
+}
+hr {
+  margin-top: -1rem;
+  border-top: 3px solid rgba(0, 0, 0, 0.1);
+}
+.col-3 {
+  overflow: hidden;
+  height: 550px;
+}
+.c1 {
+  height: 100%;
+  width: 103%;
+  border: 0px solid green;
+  overflow: hidden;
+}
+.c2 {
+  width: 105%;
+  height: 100%;
+  border: 0px solid;
+  overflow: auto;
+  padding-right: 15px;
+}
+.no_select {
+  margin-top: 90%;
+  margin-left: 16%;
+  color: rgb(141, 141, 141);
+  position: absolute;
+}
+select {
+  width: 80px;
+  position: absolute;
+  top: 17px;
+  left: 60px;
+}
+
+/* seat select */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  margin: 3px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  border-radius: 13px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #960000;
+}
+/* seat select */
+</style>
