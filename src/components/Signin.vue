@@ -70,7 +70,7 @@
               @click="checkForm"
               class="btn btn-center bg-info text-white"
             >Create Account</button>
-            <a class="text-info" style="cursor: pointer;" @click="goLogin">
+            <a class="text-info" style="cursor: pointer;" @click="add_user()">
               <small>
                 <u>or Login</u>
               </small>
@@ -97,7 +97,8 @@ export default {
       err3: "",
       err4: "",
       err5: "",
-      err6: ""
+      err6: "",
+      user_list: [{ email: "admin@admin.com", password: "admin" },]
     };
   },
   methods: {
@@ -127,15 +128,18 @@ export default {
         }
         if (this.password != this.password_again) {
           this.err6 = "Password not match";
-          
         }
         return;
       }
 
-      this.goLogin();
+      this.add_user();
     },
     goLogin: function() {
-      this.$router.push("/");
+      // this.$router.push("/");
+    },
+    add_user: function() {
+      console.log("add user");
+      this.user_list.push({ email: this.email, password: this.password} ); // what to push unto the rows array?
     }
   }
 };

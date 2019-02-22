@@ -25,22 +25,31 @@
                 src="https://media1.popsugar-assets.com/files/thumbor/G8WL9ct5Wo7q7Zaug8dd99GptbY/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2018/07/16/938/n/1922283/d757511d5b4d0eb588dbe8.16610880_/i/Aquaman-Movie-Poster-Memes-July-2018.jpg"
               >
             </div>
+
             <div class="col-5">
+            
               <h1>Title Movie</h1>
+
               <p class="text-muted">Location latkabang | Thratre 1
                 <br>Date 00 FEB 9999 | Time xx:xx
               </p>
+              <div class="tooltip">
+                Hover over me
+                <span class="tooltiptext">Tooltip text</span>
+              </div>
               <div class="group_seat">
                 <p
                   class="text-muted"
                   style="text-align: center;font-size:18px;letter-spacing: 15px;"
                 >SCREEN</p>
                 <hr>
+
                 <label class="switch" v-for="seat in seats" :key="seat.id">
                   <input type="checkbox" :id="seat" :value="seat" v-model="seat_select">
                   <span class="slider"></span>
                 </label>
               </div>
+              <button @click="saveCats">Save</button>
               <span>select{{ seat_select }}</span>
             </div>
             <div class="col-3">
@@ -55,13 +64,15 @@
                     v-for="(seat_s) in seat_select"
                     :key="seat_s.id"
                   >
-                    <div v-bind:style= "seat_s.type === '1' ? {backgroundColor: 'rgb(204, 255, 204)'} : {backgroundColor: 'rgb(153, 204, 255)'}" class="card-body">
+                    <div
+                      v-bind:style="seat_s.type === '1' ? {backgroundColor: 'rgb(204, 255, 204)'} : {backgroundColor: 'rgb(153, 204, 255)'}"
+                      class="card-body"
+                    >
                       <h4>{{seat_s.num}}</h4>
                       <select v-model="seat_s.type" class="custom-select">
                         <option selected value="1">Adult</option>
                         <option value="2">Child</option>
                       </select>
-                    
                     </div>
                   </div>
                   <!-- box show selected seat -->
@@ -324,16 +335,30 @@ export default {
       ],
       seat_select: [],
       type: [],
-      type_seat: [],
+      type_seat: []
     };
   },
-  methods: {},
+ 
   computed: {
     no_seat: function() {
-     
       return this.seat_select.length === 0 ? "No Select" : "";
     }
-  }
+  },
+  mounted(){
+    if (localStorage.getItem('seat_select')){
+      try {
+        this.seat_select = JSON.parse(localStorage.getItem('seat_select'))
+      } catch(e){
+        localStorage.removeItem('seat_select');
+      }
+    }
+  },
+  methods: {
+    saveCats() {
+      const parsed = JSON.stringify(this.seat_select);
+      localStorage.setItem('seat_select', parsed);
+    }
+  },
 };
 </script>
 
@@ -373,7 +398,6 @@ export default {
   font-size: 1.2rem;
 }
 hr {
-  margin-top: -1rem;
   border-top: 3px solid rgba(0, 0, 0, 0.1);
 }
 .col-3 {
@@ -451,4 +475,8 @@ input:checked + .slider {
   background-color: #960000;
 }
 /* seat select */
+
+/* toolpit */
+
+/* toolpit */
 </style>

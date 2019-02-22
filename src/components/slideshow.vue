@@ -13,7 +13,7 @@
         :style="i"
       >
         <p style="line-height: 280px; font-size: 5rem; text-align: center;">
-          Page{{ index + 1 }}
+          Page{{ index + 1 }} 
         </p>
       </SliderItem>
     </Slider>

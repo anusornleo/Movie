@@ -1,5 +1,5 @@
 <template>
-  <input type="text" :value="value" placeholder="escription" @input="updateValue($event.target.value)">
+  <input type="text" :value="value">
 </template>
 <script>
 export default {

@@ -18,7 +18,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">
-              Home
+              Login as {{mail}}
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -45,9 +45,11 @@
     <br>
     <br>
     <div class="container" style="padding: 25px;">
-      <h2>Show Now</h2><br>
+      <h2>Wellcome {{ mail }} Click to see Movie Detail</h2>
+      <br>
       <div v-for="movie in movie_list" :key="movie.id" class="img-container">
         <img @click="on" class="movie-list" v-bind:src="movie.poster" alt="Click to see review">
+
         <div class="detail-container">
           <button
             v-for="times in movie.all_time"
@@ -71,29 +73,35 @@
 <script>
 import Slideshow from "@/components/slideshow";
 export default {
+  name: "Home",
+  props: ['mail'],
   components: {
     Slideshow
   },
   data() {
     return {
+      mail:"user",
       movie_list: [
         {
+          title: "111",
           poster:
             "https://lh3.googleusercontent.com/8Nb17-RgjEf0rkZn36nDoUGaSuTBc59oSFfp2gP_gxmxpCrylzOWm2IZs8fyu8o-vALEQV8T_ixH_NuvRsD8tuitQMIX6c1Fqo7hllHaoQKDDccPE5ai4_ooZRyxaB083Z_VqAf2Cd3yDYxzrKC2Z-nCCSIjcMNFm4jdVkqESYi6c1siX2pxzApQ9TdHouZAj6ssUNiNBGPZpFFBBz8TFNxg9YPCEvj_O3YflzJj6OOTZyeXLGLN1lGnxn97H1l0cm1rijF41KwD_ramcJKV9yX80jsbzPbEj-EWe8dntDTYtJOlvmsz6nAM1_JSOBQmpa7QNPJ7AXAr86CEF_XEfPpLHeTnSW7BiW9Q_TLzFr-ylcpUjSLuZ7ux8-3KxkYOohdUbrQf200i3M0CaCf0SmWzAALCRnpAxaOJohLkX-cqBMFndUbfxItslqlM3edlV0Jj5I6HzhMI_PMV1PpBKlcELj5kq_ZVGXzkoL6TT1fqJ7bAjKvLCCcNu5EzDV0HKLSA8E3qfYwaNiynljV0dt2RozVD8dPXcN5CdsGm8fSKqz97Vrf8yJecduOfZhqL2KTgCZwvT0iuhdEqt-eQGFmsf3wsM-5Aq2V0N0chcIIjOfDdrI3ltfIXq0e_AESkRwGoVNdg1El-cA2_8lf9N7iIlpVQfls=w1920-h600-no",
           text: "",
           all_time: [{ time: "10:10" }, { time: "11:30" }, { time: "14:20" }]
         },
         {
+          title: "222",
           poster:
             "https://www.joblo.com/assets/images/oldsite/posters/images/full/interstellar-banner.jpg",
           text: "",
-          all_time: [{ time: "10:10" }, { time: "11:30" }, { time: "14:20" }]
+          all_time: [{ time: "12:00" }, { time: "13:50" }, { time: "16:20" }]
         },
         {
+          title: "333",
           poster:
-            "https://lh3.googleusercontent.com/8Nb17-RgjEf0rkZn36nDoUGaSuTBc59oSFfp2gP_gxmxpCrylzOWm2IZs8fyu8o-vALEQV8T_ixH_NuvRsD8tuitQMIX6c1Fqo7hllHaoQKDDccPE5ai4_ooZRyxaB083Z_VqAf2Cd3yDYxzrKC2Z-nCCSIjcMNFm4jdVkqESYi6c1siX2pxzApQ9TdHouZAj6ssUNiNBGPZpFFBBz8TFNxg9YPCEvj_O3YflzJj6OOTZyeXLGLN1lGnxn97H1l0cm1rijF41KwD_ramcJKV9yX80jsbzPbEj-EWe8dntDTYtJOlvmsz6nAM1_JSOBQmpa7QNPJ7AXAr86CEF_XEfPpLHeTnSW7BiW9Q_TLzFr-ylcpUjSLuZ7ux8-3KxkYOohdUbrQf200i3M0CaCf0SmWzAALCRnpAxaOJohLkX-cqBMFndUbfxItslqlM3edlV0Jj5I6HzhMI_PMV1PpBKlcELj5kq_ZVGXzkoL6TT1fqJ7bAjKvLCCcNu5EzDV0HKLSA8E3qfYwaNiynljV0dt2RozVD8dPXcN5CdsGm8fSKqz97Vrf8yJecduOfZhqL2KTgCZwvT0iuhdEqt-eQGFmsf3wsM-5Aq2V0N0chcIIjOfDdrI3ltfIXq0e_AESkRwGoVNdg1El-cA2_8lf9N7iIlpVQfls=w1920-h600-no",
+            "https://keithandthemovies.files.wordpress.com/2012/09/looper-poster.jpg",
           text: "",
-          all_time: [{ time: "10:10" }, { time: "11:30" }, { time: "14:20" }]
+          all_time: [{ time: "11:10" }, { time: "14:30" }, { time: "19:20" }]
         }
       ]
     };
@@ -116,7 +124,9 @@ export default {
     border-radius: 36px;
   }
 }
-
+h2{
+  text-align: center;
+}
 .body_ton {
   background-color: rgb(41, 41, 41);
   margin: 0px;

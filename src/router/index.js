@@ -13,6 +13,9 @@ import Slideshow from '@/components/slideshow'
 import FieldList from '@/components/FieldList'
 import LayoutList from '@/components/LayoutList'
 import TodoList from '@/components/TodoList'
+//add *************************************************
+import HelloWorld from '@/components/HelloWorld'
+import Profile from '@/components/Profile'
 
 Vue.use(Router)
 
@@ -42,12 +45,15 @@ export default new Router({
     {
       path: '/home',
       name: 'Home',
-      component: Home
+      component: Home,
+      props: true
+
     },
     {
       path: '/select',
       name: 'Select',
-      component: Select
+      component: Select,
+      props: true
     },
     {
       path: '/seat',
@@ -76,6 +82,19 @@ export default new Router({
       name: 'TodoList',
       component: TodoList
     },
-    
+
+    //add *****************************
+    {
+      path: '/helloworld',
+      name: 'HelloWorld',
+      component: HelloWorld
+    },
+    {
+      path: '/profile',
+      name: 'Profile',
+      component: Profile,
+      props: true
+    }
+
   ]
 })

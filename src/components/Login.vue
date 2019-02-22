@@ -1,4 +1,4 @@
-<!-- src/components/Home.vue -->
+
 <template>
   <div class="bg bg-dark">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -42,11 +42,7 @@
                 placeholder="Password"
               >
             </div>
-            <button
-              type="submit"
-              @click="checkForm"
-              class="btn bg-info text-white"
-            >Submit</button>
+            <button type="submit" @click="checkForm" class="btn bg-info text-white">Submit</button>
             <a class="text-info text-to-signin" @click="goSignin">
               <small>
                 <u>If you don't have any account. Create it.</u>
@@ -67,7 +63,8 @@ export default {
       email: "",
       password: "",
       err1: "",
-      err2: ""
+      err2: "",
+      user_list: [{ email: "admin@mail.com", pass: "admin" }]
     };
   },
   methods: {
@@ -75,17 +72,37 @@ export default {
       if (this.email.length === 0 || this.password.length === 0) {
         if (this.email.length === 0) {
           this.err1 = "Please input Email address";
+        } else {
+          this.err1 = "";
         }
         if (this.password.length === 0) {
           this.err2 = "Please input Password";
+        } else {
+          this.err2 = "";
         }
         return;
       }
-
-      this.goHome();
+      this.check_user();
+      // this.goHome();
     },
-    goHome: function(){
-      this.$router.push("/home");
+    check_user: function() {
+      for (var num = 0; num < this.user_list.length; num++) {
+        if (this.email === this.user_list[num].email) {
+          if (this.password === this.user_list[num].pass) {
+            this.goHome();
+          } else {
+            this.err1 = "";
+            this.err2 = "Password Incolect";
+          }
+        } else {
+          this.err1 = "Not found user";
+          this.err2 = "";
+        }
+      }
+    },
+    goHome: function(mail) {
+      mail = this.email.split('@')[0];
+      this.$router.push({ name: "Home", params: { mail } });
     },
     goSignin: function() {
       this.$router.push("/signin");
@@ -112,5 +129,4 @@ export default {
   margin-left: 140px;
   cursor: pointer;
 }
-
 </style>

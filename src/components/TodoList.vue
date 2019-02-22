@@ -14,7 +14,7 @@ components: {
   },
 data() {
     return {
-      description: ''
+      description: 'okokoko'
     }
   }
   
