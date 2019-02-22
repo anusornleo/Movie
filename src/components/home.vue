@@ -48,18 +48,19 @@
       <h2>Wellcome {{ mail }} Click to see Movie Detail</h2>
       <br>
       <div v-for="movie in movie_list" :key="movie.id" class="img-container">
-        <img @click="on" class="movie-list" v-bind:src="movie.poster" alt="Click to see review">
+        <img class="movie-list" v-bind:src="movie.poster" alt="Click to see review">
 
         <div class="detail-container">
-          <button
+          <div
             v-for="times in movie.all_time"
             :key="times.id"
-            type="button"
+            type="radio"
             class="btn btn-outline-light"
-          >{{times.time}}</button>
+            v-on:click="goSelect(times,movie.title)"
+          >{{times.time}}</div>
           <button type="button" class="btn btn-buy-ticket btn-light">Buy Ticket</button>
         </div>
-        <div id="overlay" @click="off">
+        <div id="overlay">
           <h3 id="text">Short Review:
             <p>&nbsp;&nbsp;&nbsp;This is Review Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, enim laboriosam quae impedit dolorum veritatis eveniet repellendus dolore tempore harum consequatur. Error, odio? Dolorum aliquam vel non molestiae, facilis eligendi?</p>
           </h3>
@@ -74,44 +75,72 @@
 import Slideshow from "@/components/slideshow";
 export default {
   name: "Home",
-  props: ['mail'],
+  props: ["mail"],
   components: {
     Slideshow
   },
   data() {
     return {
-      mail:"user",
+      ac_display: "none",
       movie_list: [
         {
-          title: "111",
+          title: "Star War 8",
           poster:
             "https://lh3.googleusercontent.com/8Nb17-RgjEf0rkZn36nDoUGaSuTBc59oSFfp2gP_gxmxpCrylzOWm2IZs8fyu8o-vALEQV8T_ixH_NuvRsD8tuitQMIX6c1Fqo7hllHaoQKDDccPE5ai4_ooZRyxaB083Z_VqAf2Cd3yDYxzrKC2Z-nCCSIjcMNFm4jdVkqESYi6c1siX2pxzApQ9TdHouZAj6ssUNiNBGPZpFFBBz8TFNxg9YPCEvj_O3YflzJj6OOTZyeXLGLN1lGnxn97H1l0cm1rijF41KwD_ramcJKV9yX80jsbzPbEj-EWe8dntDTYtJOlvmsz6nAM1_JSOBQmpa7QNPJ7AXAr86CEF_XEfPpLHeTnSW7BiW9Q_TLzFr-ylcpUjSLuZ7ux8-3KxkYOohdUbrQf200i3M0CaCf0SmWzAALCRnpAxaOJohLkX-cqBMFndUbfxItslqlM3edlV0Jj5I6HzhMI_PMV1PpBKlcELj5kq_ZVGXzkoL6TT1fqJ7bAjKvLCCcNu5EzDV0HKLSA8E3qfYwaNiynljV0dt2RozVD8dPXcN5CdsGm8fSKqz97Vrf8yJecduOfZhqL2KTgCZwvT0iuhdEqt-eQGFmsf3wsM-5Aq2V0N0chcIIjOfDdrI3ltfIXq0e_AESkRwGoVNdg1El-cA2_8lf9N7iIlpVQfls=w1920-h600-no",
           text: "",
-          all_time: [{ time: "10:10" }, { time: "11:30" }, { time: "14:20" }]
+          all_time: [
+            { time: "10:10", theater: "1",date:"27 FEB 2019" },
+            { time: "11:30", theater: "3",date:"27 FEB 2019" },
+            { time: "14:20", theater: "4",date:"27 FEB 2019" }
+          ]
         },
         {
-          title: "222",
+          title: "Avenger Infinity war",
+          poster:
+            "https://preposterousprose.files.wordpress.com/2018/03/avengers-infinity-war-landscape.jpg?w=1184&#038;h=416&#038;crop=1",
+          text: "",
+          all_time: [
+            { time: "11:10", theater: "7",date:"27 FEB 2019" },
+            { time: "14:30", theater: "3",date:"27 FEB 2019" },
+            { time: "19:20", theater: "2",date:"27 FEB 2019" }
+          ]
+        },
+        {
+          title: "Aquarman",
+          poster:
+            "https://i.imgur.com/YaGLpcQ.png",
+          text: "",
+          all_time: [
+            { time: "11:10", theater: "7",date:"27 FEB 2019" },
+            { time: "14:30", theater: "3",date:"27 FEB 2019" },
+            { time: "19:20", theater: "2",date:"27 FEB 2019" }
+          ]
+        },
+        {
+          title: "Intersteller",
           poster:
             "https://www.joblo.com/assets/images/oldsite/posters/images/full/interstellar-banner.jpg",
           text: "",
-          all_time: [{ time: "12:00" }, { time: "13:50" }, { time: "16:20" }]
+          all_time: [
+            { time: "12:00", theater: "4",date:"27 FEB 2019" },
+            { time: "13:50", theater: "6",date:"27 FEB 2019" },
+            { time: "16:20", theater: "1",date:"27 FEB 2019" }
+          ]
         },
-        {
-          title: "333",
-          poster:
-            "https://keithandthemovies.files.wordpress.com/2012/09/looper-poster.jpg",
-          text: "",
-          all_time: [{ time: "11:10" }, { time: "14:30" }, { time: "19:20" }]
-        }
+        
       ]
     };
   },
   methods: {
     on: function() {
-      console.log("on");
+      (this.ac_display = "block"), console.log("on");
     },
     off: function() {
       console.log("off");
+    },
+    goSelect: function(value,title) {
+      console.log(value,title);
+      this.$router.push({ name: "Select", params: { value,title } });
     }
   }
 };
@@ -124,7 +153,7 @@ export default {
     border-radius: 36px;
   }
 }
-h2{
+h2 {
   text-align: center;
 }
 .body_ton {
@@ -176,6 +205,9 @@ h2{
   border-bottom: 0px;
   border-radius: 20px 20px 0px 0px;
   margin-bottom: 0px;
+}
+.img-container:checked {
+  border: 6px solid rgb(243, 6, 6);
 }
 
 .detail-container {
@@ -260,13 +292,13 @@ h2{
 #overlay {
   position: absolute;
   /* Sit on top of the page content */
-  display: none;
+  display: /*block;*/ none;
   /* Hidden by default */
   border-radius: 15px 15px 0px 0px;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 60;
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.8);
   /* Black background with opacity */
   z-index: 3;

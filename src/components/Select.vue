@@ -28,15 +28,12 @@
 
             <div class="col-5">
             
-              <h1>Title Movie</h1>
+              <h1>{{title}}</h1>
 
-              <p class="text-muted">Location latkabang | Thratre 1
-                <br>Date 00 FEB 9999 | Time xx:xx
+              <p class="text-muted">Location latkabang | Thratre {{value.theater}}
+                <br>Date 00 FEB 9999 | Time {{value.time}}
               </p>
-              <div class="tooltip">
-                Hover over me
-                <span class="tooltiptext">Tooltip text</span>
-              </div>
+              
               <div class="group_seat">
                 <p
                   class="text-muted"
@@ -49,7 +46,7 @@
                   <span class="slider"></span>
                 </label>
               </div>
-              <button @click="saveCats">Save</button>
+              <button @click="saveLocal">Save</button>
               <span>select{{ seat_select }}</span>
             </div>
             <div class="col-3">
@@ -89,6 +86,7 @@
 <script>
 export default {
   name: "Select",
+  props: ["value","title"],
   data() {
     return {
       seats: [
@@ -344,19 +342,19 @@ export default {
       return this.seat_select.length === 0 ? "No Select" : "";
     }
   },
-  mounted(){
-    if (localStorage.getItem('seat_select')){
-      try {
-        this.seat_select = JSON.parse(localStorage.getItem('seat_select'))
-      } catch(e){
-        localStorage.removeItem('seat_select');
-      }
-    }
-  },
+  // mounted(){
+  //   if (localStorage.getItem('seat_select')){
+  //     try {
+  //       this.seat_select = JSON.parse(localStorage.getItem('seat_select'))
+  //     } catch(e){
+  //       localStorage.removeItem('seat_select');
+  //     }
+  //   }
+  // },
   methods: {
-    saveCats() {
+    saveLocal() {
       const parsed = JSON.stringify(this.seat_select);
-      localStorage.setItem('seat_select', parsed);
+      // localStorage.setItem('seat_select', parsed);
     }
   },
 };
