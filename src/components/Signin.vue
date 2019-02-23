@@ -70,7 +70,7 @@
               @click="checkForm"
               class="btn btn-center bg-info text-white"
             >Create Account</button>
-            <a class="text-info" style="cursor: pointer;" @click="add_user()">
+            <a class="text-info" style="cursor: pointer;" @click="goLogin()">
               <small>
                 <u>or Login</u>
               </small>
@@ -85,6 +85,7 @@
 <script>
 export default {
   name: "SignIn",
+  props: ["user_list"],
   data() {
     return {
       fname: "",
@@ -98,11 +99,30 @@ export default {
       err4: "",
       err5: "",
       err6: "",
-      user_list: [{ email: "admin@admin.com", password: "admin" },]
+      // user_list: [
+      //   {
+      //     email: "admin@admin.com",
+      //     password: "admin",
+      //     fname: "admin",
+      //     lname: "admin"
+      //   },
+      //   {
+      //     email: "a",
+      //     password: "a",
+      //     fname: "a",
+      //     lname: "a"
+      //   },
+      //   {
+      //     email: "b",
+      //     password: "b",
+      //     fname: "b",
+      //     lname: "b"
+      //   }
+      // ],
     };
   },
   methods: {
-    checkForm: function() {
+    checkForm: function() {  
       if (
         this.fname.length === 0 ||
         this.lname.length === 0 ||
@@ -127,19 +147,42 @@ export default {
           this.err5 = " Please Input Password Again";
         }
         if (this.password != this.password_again) {
-          this.err6 = "Password not match";
+          this.err5 = "Password not match";
         }
         return;
       }
-
-      this.add_user();
+      this.check_user();
+    },
+    check_user:function(){
+      const result = this.user_list.filter((user_list) => {
+        return user_list.email === this.email
+      })
+      if (result.length > 0){
+        this.err1 = "";
+        this.err2 = "";
+        this.err3 = "This email has already";
+        this.err4 = "";
+        this.err5 = "";
+      }
+      else if (result.length === 0){
+        this.backLogin(this.fname,this.lname,this.email,this.password,'again');
+      }
     },
     goLogin: function() {
-      // this.$router.push("/");
+      this.$router.push("/");
     },
-    add_user: function() {
-      console.log("add user");
-      this.user_list.push({ email: this.email, password: this.password} ); // what to push unto the rows array?
+    // add_user: function() {
+    //   this.user_list.push({
+    //     email: this.email,
+    //     password: this.password,
+    //     fname: this.fname,
+    //     lname: this.lname
+    //   }); // what to push unto the rows array?
+    //   this.backLogin(this.user_list,'again');
+    // },
+    backLogin:function(fname_add,lname_add,email_add,password_add,again){
+      // user_list = this.user_list;
+      this.$router.push({ name: "Login", params: { fname_add,lname_add,email_add,password_add,again } });
     }
   }
 };
@@ -160,7 +203,7 @@ export default {
   position: absolute;
 }
 .btn-center {
-  margin-left: 164px;
-  margin-right: 100px;
+  margin-left: 145px;
+  margin-right: 80px;
 }
 </style>
