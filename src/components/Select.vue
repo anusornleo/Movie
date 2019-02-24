@@ -30,7 +30,7 @@
               <h1>{{title}}.</h1>
 
               <p class="text-muted">
-                Location latkabang | Thratre {{}}
+                Location latkabang | Thratre {{title}}
                 <br>
                 Date 00 FEB 9999 | Time {{}}
               </p>
