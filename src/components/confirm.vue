@@ -15,12 +15,12 @@
           </div>
           <div class="col-md-8">
             <h2>Email Info: </h2>
-            <h2>Title: </h2>
-            <h2>Theater: </h2>
-            <h2>Time: </h2>
-            <h2>Quantity: </h2>
+            <h2>Title: {{title}}</h2>
+            <h2>Theater: {{value.theater}}</h2>
+            <h2>Time: {{value.time}} </h2>
+            <h2>Quantity: {{seat_select.length}}</h2>
             <h2>Seat: </h2>
-            <h2>Payment Method: </h2>
+            <h2>Payment Method: {{card_num}}</h2>
             <button type="submit" class="btn btn-primary">Confirm</button>
             <button type="submit" class="btn btn-primary">Cancle</button>
           </div>
@@ -166,7 +166,8 @@
 
 <script>
   export default {
-    name: "#confirm",
+    name: "Confirm",
+    props: ['seat_select','title','num','value','sum_cost','card_num'],
     data() {
       return {
         navSize: 110,

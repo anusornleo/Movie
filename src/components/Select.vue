@@ -42,7 +42,7 @@
               </div>
               <button @click="clear_seat" type="button" class="btn btn-danger">Clear Seat</button>
               <h6>Selected {{seat_select.length}} seats</h6>
-              <button @click="goPlayment" type="button" class="btn btn-info">Next</button>
+              <button @click="goPlayment(seat_select,title,num,value,sum_cost)" type="button" class="btn btn-info">Next</button>
             </div>
             <div class="col-3 height">
               <h4 style="right: 38px;position: absolute;">Total : {{sum_cost}} ฿</h4>
@@ -435,8 +435,8 @@
       clear_seat: function () {
         this.seat_select = [];
       },
-      goPlayment: function () {
-        this.$router.push({ name: "Select", params: { value, title } });
+      goPlayment: function (seat_select,title,num,value,sum_cost) {
+        this.$router.push({ name: "Payment", params: { seat_select,title,num,value,sum_cost } });
       }
       // saveLocal() {
       //   const parsed = JSON.stringify(this.seat_select);

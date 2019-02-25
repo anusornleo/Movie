@@ -17,11 +17,12 @@
           <div class="col-md-6" style="text-align: -webkit-right;">
             <div class="card" style="width: 18rem;">
               <div class="card-body" style="text-align: left;">
-                <h5 class="card-title">Cash
+                <h5 class="card-title">
+                  Cash {{title}}
                   <!-- <img src="../components/img/notes.png" alt="debit card" width="10%"> -->
                 </h5>
                 <p class="card-text">Pay with cash on the counter of the cinema.</p>
-                <a href="confirm.html" class="btn btn-primary">Go To Next Step</a>
+                <a @click="goConfirm(seat_select,title,num,value,sum_cost,card_num)" class="btn btn-primary">Go To Next Step</a>
               </div>
             </div>
           </div>
@@ -43,11 +44,12 @@
 
         <div class="row">
           <div class="col-md-12">
-            <form v-if="showState" class="b">
+            <div v-if="showState" class="b">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="cardnumber">CardNumber</label>
                   <input
+                    v-model="card_num"
                     type="cardnumber"
                     class="form-control"
                     id="cardnumber"
@@ -64,10 +66,10 @@
                 <input type="text" class="form-control" id="name" placeholder="Enter your name">
               </div>
               <div>
-                <button type="submit" class="btn btn-primary">Confirm</button>
+                <button @click="goConfirm(seat_select,title,num,value,sum_cost,card_num)" type="submit" class="btn btn-primary">Confirm</button>
                 <button type="submit" class="btn btn-primary">Cancle</button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -215,11 +217,13 @@ body {
 <script>
 export default {
   name: "#payment",
+  props: ["seat_select", "title", "num", "value", "title", "sum_cost"],
   data() {
     return {
       navSize: 80,
       type: "relative",
-      showState: false
+      showState: false,
+      card_num:''
     };
   },
   created() {
@@ -239,6 +243,9 @@ export default {
       } else if (this.showState == false) {
         this.showState = true;
       }
+    },
+    goConfirm: function(seat_select,title,num,value,sum_cost,card_num) {
+      this.$router.push({ name: "Confirm", params: { seat_select,title,num,value,sum_cost,card_num } });
     }
   },
   computed: {},
