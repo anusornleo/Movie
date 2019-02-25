@@ -19,9 +19,9 @@
               <h1>{{title}}.</h1>
 
               <p class="text-muted">
-                Location latkabang | Thratre {{title}}
+                Location latkabang | Thratre {{value.theater}}
                 <br>
-                Date 00 FEB 9999 | Time {{}}
+                Date 00 FEB 9999 | Time {{value.time}}
               </p>
 
               <div class="group_seat">
@@ -42,7 +42,7 @@
               </div>
               <button @click="clear_seat" type="button" class="btn btn-danger">Clear Seat</button>
               <h6>Selected {{seat_select.length}} seats</h6>
-              <button type="button" class="btn btn-info">Next</button>
+              <button @click="goPlayment" type="button" class="btn btn-info">Next</button>
             </div>
             <div class="col-3 height">
               <h4 style="right: 38px;position: absolute;">Total : {{sum_cost}} ฿</h4>
@@ -434,6 +434,9 @@
     methods: {
       clear_seat: function () {
         this.seat_select = [];
+      },
+      goPlayment: function () {
+        this.$router.push({ name: "Select", params: { value, title } });
       }
       // saveLocal() {
       //   const parsed = JSON.stringify(this.seat_select);
@@ -451,7 +454,7 @@
   }
 
   .stepBar {
-    position: relative;
+    position: absolute;
     list-style: none;
     margin: 0 0 1em;
     padding: 0;
@@ -559,7 +562,7 @@
   .card_custom {
     width: auto;
     margin: auto;
-    top: 0.5vw;
+    top: 3.5rem;
     border-radius: 15px;
   }
 

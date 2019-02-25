@@ -89,9 +89,9 @@ export default {
             "https://lh3.googleusercontent.com/8Nb17-RgjEf0rkZn36nDoUGaSuTBc59oSFfp2gP_gxmxpCrylzOWm2IZs8fyu8o-vALEQV8T_ixH_NuvRsD8tuitQMIX6c1Fqo7hllHaoQKDDccPE5ai4_ooZRyxaB083Z_VqAf2Cd3yDYxzrKC2Z-nCCSIjcMNFm4jdVkqESYi6c1siX2pxzApQ9TdHouZAj6ssUNiNBGPZpFFBBz8TFNxg9YPCEvj_O3YflzJj6OOTZyeXLGLN1lGnxn97H1l0cm1rijF41KwD_ramcJKV9yX80jsbzPbEj-EWe8dntDTYtJOlvmsz6nAM1_JSOBQmpa7QNPJ7AXAr86CEF_XEfPpLHeTnSW7BiW9Q_TLzFr-ylcpUjSLuZ7ux8-3KxkYOohdUbrQf200i3M0CaCf0SmWzAALCRnpAxaOJohLkX-cqBMFndUbfxItslqlM3edlV0Jj5I6HzhMI_PMV1PpBKlcELj5kq_ZVGXzkoL6TT1fqJ7bAjKvLCCcNu5EzDV0HKLSA8E3qfYwaNiynljV0dt2RozVD8dPXcN5CdsGm8fSKqz97Vrf8yJecduOfZhqL2KTgCZwvT0iuhdEqt-eQGFmsf3wsM-5Aq2V0N0chcIIjOfDdrI3ltfIXq0e_AESkRwGoVNdg1El-cA2_8lf9N7iIlpVQfls=w1920-h600-no",
           text: "",
           all_time: [
-            { time: "10:10", theater: "1",date:"27 FEB 2019" },
-            { time: "11:30", theater: "3",date:"27 FEB 2019" },
-            { time: "14:20", theater: "4",date:"27 FEB 2019" }
+            { time: "10:10", theater: "1", date: "27 FEB 2019" },
+            { time: "11:30", theater: "3", date: "27 FEB 2019" },
+            { time: "14:20", theater: "4", date: "27 FEB 2019" }
           ]
         },
         {
@@ -100,20 +100,19 @@ export default {
             "https://preposterousprose.files.wordpress.com/2018/03/avengers-infinity-war-landscape.jpg?w=1184&#038;h=416&#038;crop=1",
           text: "",
           all_time: [
-            { time: "11:10", theater: "7",date:"27 FEB 2019" },
-            { time: "14:30", theater: "3",date:"27 FEB 2019" },
-            { time: "19:20", theater: "2",date:"27 FEB 2019" }
+            { time: "11:10", theater: "7", date: "27 FEB 2019" },
+            { time: "14:30", theater: "3", date: "27 FEB 2019" },
+            { time: "19:20", theater: "2", date: "27 FEB 2019" }
           ]
         },
         {
           title: "Aquarman",
-          poster:
-            "https://i.imgur.com/YaGLpcQ.png",
+          poster: "https://i.imgur.com/YaGLpcQ.png",
           text: "",
           all_time: [
-            { time: "11:10", theater: "7",date:"27 FEB 2019" },
-            { time: "14:30", theater: "3",date:"27 FEB 2019" },
-            { time: "19:20", theater: "2",date:"27 FEB 2019" }
+            { time: "11:10", theater: "7", date: "27 FEB 2019" },
+            { time: "14:30", theater: "3", date: "27 FEB 2019" },
+            { time: "19:20", theater: "2", date: "27 FEB 2019" }
           ]
         },
         {
@@ -122,12 +121,11 @@ export default {
             "https://www.joblo.com/assets/images/oldsite/posters/images/full/interstellar-banner.jpg",
           text: "",
           all_time: [
-            { time: "12:00", theater: "4",date:"27 FEB 2019" },
-            { time: "13:50", theater: "6",date:"27 FEB 2019" },
-            { time: "16:20", theater: "1",date:"27 FEB 2019" }
+            { time: "12:00", theater: "4", date: "27 FEB 2019" },
+            { time: "13:50", theater: "6", date: "27 FEB 2019" },
+            { time: "16:20", theater: "1", date: "27 FEB 2019" }
           ]
-        },
-        
+        }
       ]
     };
   },
@@ -138,9 +136,9 @@ export default {
     off: function() {
       console.log("off");
     },
-    goSelect: function(value,title) {
-      console.log(value,title);
-      this.$router.push({ name: "Select", params: { value,title } });
+    goSelect: function(value, title) {
+      console.log(value, title);
+      this.$router.push({ name: "Select", params: { value, title } });
     }
   }
 };

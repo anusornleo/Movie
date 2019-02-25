@@ -72,12 +72,14 @@ export default new Router({
     {
       path: '/payment',
       name: 'Payment',
-      component: Payment
+      component: Payment,
+      props: true
     },
     {
       path: '/confirm',
       name: 'Confirm',
-      component: Confirm
+      component: Confirm,
+      props: true
     },
 
     // add ****************************************************
