@@ -8,6 +8,8 @@ import Home from '@/components/home'
 import Select from '@/components/Select'
 import Seat from '@/components/Seat'
 import Slideshow from '@/components/slideshow'
+import Payment from '@/components/Payment'
+import Confirm from '@/components/Confirm'
 
 // add ************************************************
 import FieldList from '@/components/FieldList'
@@ -66,6 +68,16 @@ export default new Router({
       path: '/slideshow',
       name: 'Slideshow',
       component: Slideshow
+    },
+    {
+      path: '/payment',
+      name: 'Payment',
+      component: Payment
+    },
+    {
+      path: '/confirm',
+      name: 'Confirm',
+      component: Confirm
     },
 
     // add ****************************************************
