@@ -10,6 +10,7 @@ import Seat from '@/components/Seat'
 import Slideshow from '@/components/slideshow'
 import Payment from '@/components/Payment'
 import Confirm from '@/components/Confirm'
+import Print from '@/components/Print'
 
 // add ************************************************
 import FieldList from '@/components/FieldList'
@@ -79,6 +80,12 @@ export default new Router({
       path: '/confirm',
       name: 'Confirm',
       component: Confirm,
+      props: true
+    },
+    {
+      path: '/print',
+      name: 'Print',
+      component: Print,
       props: true
     },
 

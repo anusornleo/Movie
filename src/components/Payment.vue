@@ -9,7 +9,7 @@
       <div class="container" ref="main" v-bind:style="{position: type, top: navSize + 'px' }">
         <div class="row">
           <div class="col-md-12">
-            <h1>Payment Type</h1>
+          
           </div>
         </div>
 
@@ -22,7 +22,7 @@
                   <!-- <img src="../components/img/notes.png" alt="debit card" width="10%"> -->
                 </h5>
                 <p class="card-text">Pay with cash on the counter of the cinema.</p>
-                <a @click="goConfirm(seat_select,title,num,value,sum_cost,card_num)" class="btn btn-primary">Go To Next Step</a>
+                <a @click="goConfirm(seat_select,title,num,value,sum_cost,card_num,poster)" class="btn btn-primary" style="color:white;">Go To Next Step</a>
               </div>
             </div>
           </div>
@@ -66,7 +66,7 @@
                 <input type="text" class="form-control" id="name" placeholder="Enter your name">
               </div>
               <div>
-                <button @click="goConfirm(seat_select,title,num,value,sum_cost,card_num)" type="submit" class="btn btn-primary">Confirm</button>
+                <button @click="goConfirm(seat_select,title,num,value,sum_cost,card_num,poster)" type="submit" class="btn btn-primary">Confirm</button>
                 <button type="submit" class="btn btn-primary">Cancle</button>
               </div>
             </div>
@@ -83,6 +83,9 @@
   .container {
     max-width: 700px;
   }
+}
+.btn-primary{
+  color: white;
 }
 body {
   margin: 0;
@@ -114,7 +117,7 @@ body {
 }
 
 .stepBar {
-  position: fixed;
+  position: absolute;
   list-style: none;
   margin: 0 0 1em;
   padding: 0;
@@ -217,7 +220,7 @@ body {
 <script>
 export default {
   name: "#payment",
-  props: ["seat_select", "title", "num", "value", "title", "sum_cost"],
+  props: ["seat_select", "title", "num", "value", "title", "sum_cost","mail","poster"],
   data() {
     return {
       navSize: 80,
@@ -244,8 +247,8 @@ export default {
         this.showState = true;
       }
     },
-    goConfirm: function(seat_select,title,num,value,sum_cost,card_num) {
-      this.$router.push({ name: "Confirm", params: { seat_select,title,num,value,sum_cost,card_num } });
+    goConfirm: function(seat_select,title,num,value,sum_cost,card_num,mail,poster) {
+      this.$router.push({ name: "Confirm", params: { seat_select,title,num,value,sum_cost,card_num,mail,poster } });
     }
   },
   computed: {},

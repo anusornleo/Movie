@@ -1,3 +1,6 @@
+
+
+
 <template>
   <div class="body_ton">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -25,42 +28,42 @@
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input
+            v-model="searchFilter"
             class="form-control mr-sm-2"
             type="search"
             placeholder="Search Movie"
             aria-label="Search"
           >
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
         </form>
       </div>
     </nav>
     <slideshow></slideshow>
-
-    <div class="w3-content" style="max-width:100%">
-      <img class="mySlides" src="img/starwar_banner.jpg">
-      <img class="mySlides" src="img/miraclesfromheaven_banner.jpg">
-      <img class="mySlides" src="img/ragamuffin.jpg">
-    </div>
     <br>
     <br>
     <br>
     <div class="container" style="padding: 25px;">
-      <h2>Wellcome {{ mail }} Click to see Movie Detail</h2>
+      <h2>Welcome {{ mail }}, What do you want to watch</h2>
       <br>
-      <div v-for="movie in movie_list" :key="movie.id" class="img-container">
+      <div v-for="movie in filteredBlogs" :key="movie.id" class="img-container">
         <img class="movie-list" v-bind:src="movie.poster" alt="Click to see review">
-
         <div class="detail-container">
           <div
             v-for="times in movie.all_time"
             :key="times.id"
             type="radio"
             class="btn btn-outline-light"
-            v-on:click="goSelect(times,movie.title)"
+            v-on:click="goSelect(times,movie.title,mail,movie.poster_poetait)"
           >{{times.time}}</div>
-          <button type="button" class="btn btn-buy-ticket btn-light">Buy Ticket</button>
+          <!-- <button type="button" class="btn btn-buy-ticket btn-light">Buy Ticket</button> -->
         </div>
-        <div id="overlay">
+
+        <!-- <div id="clock">
+          <p class="date">{{ date }}</p>
+          <p class="time">{{ time }}</p>
+          <p class="text">DIGITAL CLOCK with Vue.js</p>
+        </div>-->
+        <div class="overlay">
           <h3 id="text">Short Review:
             <p>&nbsp;&nbsp;&nbsp;This is Review Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, enim laboriosam quae impedit dolorum veritatis eveniet repellendus dolore tempore harum consequatur. Error, odio? Dolorum aliquam vel non molestiae, facilis eligendi?</p>
           </h3>
@@ -72,6 +75,7 @@
 </template>
 
 <script>
+// import popup from '@/components/popup';
 import Slideshow from "@/components/slideshow";
 export default {
   name: "Home",
@@ -82,48 +86,116 @@ export default {
   data() {
     return {
       ac_display: "none",
+      searchFilter: "",
       movie_list: [
         {
-          title: "Star War 8",
+          title: "star war 8",
+          subTitle: "Star War 8",
           poster:
             "https://lh3.googleusercontent.com/8Nb17-RgjEf0rkZn36nDoUGaSuTBc59oSFfp2gP_gxmxpCrylzOWm2IZs8fyu8o-vALEQV8T_ixH_NuvRsD8tuitQMIX6c1Fqo7hllHaoQKDDccPE5ai4_ooZRyxaB083Z_VqAf2Cd3yDYxzrKC2Z-nCCSIjcMNFm4jdVkqESYi6c1siX2pxzApQ9TdHouZAj6ssUNiNBGPZpFFBBz8TFNxg9YPCEvj_O3YflzJj6OOTZyeXLGLN1lGnxn97H1l0cm1rijF41KwD_ramcJKV9yX80jsbzPbEj-EWe8dntDTYtJOlvmsz6nAM1_JSOBQmpa7QNPJ7AXAr86CEF_XEfPpLHeTnSW7BiW9Q_TLzFr-ylcpUjSLuZ7ux8-3KxkYOohdUbrQf200i3M0CaCf0SmWzAALCRnpAxaOJohLkX-cqBMFndUbfxItslqlM3edlV0Jj5I6HzhMI_PMV1PpBKlcELj5kq_ZVGXzkoL6TT1fqJ7bAjKvLCCcNu5EzDV0HKLSA8E3qfYwaNiynljV0dt2RozVD8dPXcN5CdsGm8fSKqz97Vrf8yJecduOfZhqL2KTgCZwvT0iuhdEqt-eQGFmsf3wsM-5Aq2V0N0chcIIjOfDdrI3ltfIXq0e_AESkRwGoVNdg1El-cA2_8lf9N7iIlpVQfls=w1920-h600-no",
           text: "",
+          poster_poetait: "https://starwarsblog.starwars.com/wp-content/uploads/sites/6/2017/10/the-last-jedi-theatrical-blog.jpg",
           all_time: [
             { time: "10:10", theater: "1", date: "27 FEB 2019" },
             { time: "11:30", theater: "3", date: "27 FEB 2019" },
-            { time: "14:20", theater: "4", date: "27 FEB 2019" }
+            { time: "12:00", theater: "2", date: "27 FEB 2019" },
+            { time: "13:25", theater: "5", date: "27 FEB 2019" },
+            { time: "17:30", theater: "1", date: "27 FEB 2019" },
+            { time: "20:20", theater: "4", date: "27 FEB 2019" }
           ]
         },
         {
-          title: "Avenger Infinity war",
+          title: "avenger infinity war",
+          subTitle: "Avenger Infinity War",
           poster:
             "https://preposterousprose.files.wordpress.com/2018/03/avengers-infinity-war-landscape.jpg?w=1184&#038;h=416&#038;crop=1",
           text: "",
+          poster_poetait: "https://images-na.ssl-images-amazon.com/images/I/A1t8xCe9jwL._SL1500_.jpg",
           all_time: [
-            { time: "11:10", theater: "7", date: "27 FEB 2019" },
-            { time: "14:30", theater: "3", date: "27 FEB 2019" },
-            { time: "19:20", theater: "2", date: "27 FEB 2019" }
+            { time: "10:10", theater: "1", date: "27 FEB 2019" },
+            { time: "11:30", theater: "3", date: "27 FEB 2019" },
+            { time: "12:00", theater: "2", date: "27 FEB 2019" },
+            { time: "13:25", theater: "5", date: "27 FEB 2019" },
+            { time: "17:30", theater: "1", date: "27 FEB 2019" },
+            { time: "20:20", theater: "4", date: "27 FEB 2019" }
           ]
         },
         {
-          title: "Aquarman",
+          title: "aquarman",
+          subTitle: "Aquarman",
           poster: "https://i.imgur.com/YaGLpcQ.png",
           text: "",
+          poster_poetait: "https://media1.popsugar-assets.com/files/thumbor/G8WL9ct5Wo7q7Zaug8dd99GptbY/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2018/07/16/938/n/1922283/d757511d5b4d0eb588dbe8.16610880_/i/Aquaman-Movie-Poster-Memes-July-2018.jpg",
           all_time: [
-            { time: "11:10", theater: "7", date: "27 FEB 2019" },
-            { time: "14:30", theater: "3", date: "27 FEB 2019" },
-            { time: "19:20", theater: "2", date: "27 FEB 2019" }
+            { time: "10:10", theater: "1", date: "27 FEB 2019" },
+            { time: "11:30", theater: "3", date: "27 FEB 2019" },
+            { time: "12:00", theater: "2", date: "27 FEB 2019" },
+            { time: "13:25", theater: "5", date: "27 FEB 2019" },
+            { time: "17:30", theater: "1", date: "27 FEB 2019" },
+            { time: "20:20", theater: "4", date: "27 FEB 2019" }
           ]
         },
         {
-          title: "Intersteller",
+          title: "intersteller",
+          subTitle: "Intersteller",
           poster:
             "https://www.joblo.com/assets/images/oldsite/posters/images/full/interstellar-banner.jpg",
           text: "",
+          poster_poetait: "https://images-na.ssl-images-amazon.com/images/I/716P1xCmnPL._SL1020_.jpg",
           all_time: [
-            { time: "12:00", theater: "4", date: "27 FEB 2019" },
-            { time: "13:50", theater: "6", date: "27 FEB 2019" },
-            { time: "16:20", theater: "1", date: "27 FEB 2019" }
+            { time: "10:10", theater: "1", date: "27 FEB 2019" },
+            { time: "11:30", theater: "3", date: "27 FEB 2019" },
+            { time: "12:00", theater: "2", date: "27 FEB 2019" },
+            { time: "13:25", theater: "5", date: "27 FEB 2019" },
+            { time: "17:30", theater: "1", date: "27 FEB 2019" },
+            { time: "20:20", theater: "4", date: "27 FEB 2019" }
+          ]
+        },
+        {
+          title: "captain marvel",
+          subTitle: "Captain Marvel",
+          poster:
+            "https://lumiere-a.akamaihd.net/v1/images/movie-page_desktop_hero-banner_ea72abd0.png?region=0,0,2000,835&width=1200&optimize=true",
+          text: "",
+          poster_poetait: "https://cdn.images.express.co.uk/img/dynamic/36/590x/secondary/Captain-Marvel-international-poster-1724182.jpg?r=1549376910515",
+          all_time: [
+            { time: "10:10", theater: "1", date: "27 FEB 2019" },
+            { time: "11:30", theater: "3", date: "27 FEB 2019" },
+            { time: "12:00", theater: "2", date: "27 FEB 2019" },
+            { time: "13:25", theater: "5", date: "27 FEB 2019" },
+            { time: "17:30", theater: "1", date: "27 FEB 2019" },
+            { time: "20:20", theater: "4", date: "27 FEB 2019" }
+          ]
+        },
+        {
+          title: "rampage",
+          subTitle: "Rampage",
+          poster:
+            "https://www.seanpaune.com/wp-content/uploads/2018/04/Rampage-Movie-Banner-1740xauto.jpg",
+          text: "",
+          poster_poetait: "https://images-na.ssl-images-amazon.com/images/I/61OnqbS86XL.jpg",
+          all_time: [
+            { time: "10:10", theater: "1", date: "27 FEB 2019" },
+            { time: "11:30", theater: "3", date: "27 FEB 2019" },
+            { time: "12:00", theater: "2", date: "27 FEB 2019" },
+            { time: "13:25", theater: "5", date: "27 FEB 2019" },
+            { time: "17:30", theater: "1", date: "27 FEB 2019" },
+            { time: "20:20", theater: "4", date: "27 FEB 2019" }
+          ]
+        },
+        {
+          title: "friend zone",
+          subTitle: "Friend Zone",
+          poster: "https://i.imgur.com/8ptcqPF.jpg",
+          text: "",
+          poster_poetait: "https://f.ptcdn.info/916/061/000/pl7cyadm6N6kVq6zp0D-o.jpg",
+          all_time: [
+            { time: "10:10", theater: "1", date: "27 FEB 2019" },
+            { time: "11:30", theater: "3", date: "27 FEB 2019" },
+            { time: "12:00", theater: "2", date: "27 FEB 2019" },
+            { time: "13:25", theater: "5", date: "27 FEB 2019" },
+            { time: "17:30", theater: "1", date: "27 FEB 2019" },
+            { time: "20:20", theater: "4", date: "27 FEB 2019" }
           ]
         }
       ]
@@ -136,12 +208,58 @@ export default {
     off: function() {
       console.log("off");
     },
-    goSelect: function(value, title) {
+    goSelect: function(value, title, mail,poster) {
       console.log(value, title);
-      this.$router.push({ name: "Select", params: { value, title } });
+      this.$router.push({ name: "Select", params: { value, title, mail,poster } });
+    }
+  },
+  computed: {
+    filteredBlogs: function() {
+      return this.movie_list.filter(movie => {
+        return movie.title.match(this.searchFilter.toLowerCase());
+      });
     }
   }
 };
+
+// --------------------------------C L O C K-------------------------------------
+// var clock = new Vue({
+//   el: "#clock",
+//   data: {
+//     time: "",
+//     date: ""
+//   }
+// });
+
+// var week = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+// var timerID = setInterval(updateTime, 1000);
+// updateTime();
+// function updateTime() {
+//   var cd = new Date();
+//   clock.time =
+//     zeroPadding(cd.getHours(), 2) +
+//     ":" +
+//     zeroPadding(cd.getMinutes(), 2) +
+//     ":" +
+//     zeroPadding(cd.getSeconds(), 2);
+//   clock.date =
+//     zeroPadding(cd.getFullYear(), 4) +
+//     "-" +
+//     zeroPadding(cd.getMonth() + 1, 2) +
+//     "-" +
+//     zeroPadding(cd.getDate(), 2) +
+//     " " +
+//     week[cd.getDay()];
+// }
+
+// function zeroPadding(num, digit) {
+//   var zero = "";
+//   for (var i = 0; i < digit; i++) {
+//     zero += "0";
+//   }
+//   return (zero + num).slice(-digit);
+// }
+// ------------------------------------------------------------------------------
 </script>
 
 <style scoped>
@@ -287,24 +405,36 @@ h2 {
 }
 
 /* ----------------Overlay--------------------- */
-#overlay {
+.overlay {
   position: absolute;
-  /* Sit on top of the page content */
-  display: /*block;*/ none;
-  /* Hidden by default */
-  border-radius: 15px 15px 0px 0px;
   top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  /* Black background with opacity */
-  z-index: 3;
-  /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer;
-  /* Add a pointer on hover */
+  height: 87%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: rgb(0, 0, 0);
+  border-radius: 20px 20px 0px 0px;
 }
 
+.img-container:hover .overlay {
+  opacity: 0.8;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+/* --------------------------------------------------- */
 #text {
   position: absolute;
   top: 50%;
@@ -314,4 +444,31 @@ h2 {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
+
+/* --------------------------------Clock--------------------------- */
+/* #clock {
+  font-family: "Share Tech Mono", monospace;
+  color: #ffffff;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #daf6ff;
+  text-shadow: 0 0 20px rgba(10, 175, 230, 1), 0 0 20px rgba(10, 175, 230, 0);
+  .time {
+    letter-spacing: 0.05em;
+    font-size: 80px;
+    padding: 5px 0;
+  }
+  .date {
+    letter-spacing: 0.1em;
+    font-size: 24px;
+  }
+  .text {
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    padding: 20px 0 0;
+  }
+} */
 </style>

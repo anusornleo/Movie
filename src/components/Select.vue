@@ -12,13 +12,16 @@
         <div class="card-body">
           <div class="row">
             <div class="col-4">
-              <img class="portait_poster" src="https://media1.popsugar-assets.com/files/thumbor/G8WL9ct5Wo7q7Zaug8dd99GptbY/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2018/07/16/938/n/1922283/d757511d5b4d0eb588dbe8.16610880_/i/Aquaman-Movie-Poster-Memes-July-2018.jpg">
+              
+              <img class="portait_poster" :src="poster">
+              
             </div>
 
             <div class="col-5">
-              <h1>{{title}}.</h1>
+              <h1>{{title.charAt(0).toUpperCase()}}{{title.slice(1)}}</h1>
 
               <p class="text-muted">
+                
                 Location latkabang | Thratre {{value.theater}}
                 <br>
                 Date 00 FEB 9999 | Time {{value.time}}
@@ -42,7 +45,7 @@
               </div>
               <button @click="clear_seat" type="button" class="btn btn-danger">Clear Seat</button>
               <h6>Selected {{seat_select.length}} seats</h6>
-              <button @click="goPlayment(seat_select,title,num,value,sum_cost)" type="button" class="btn btn-info">Next</button>
+              <button @click="goPlayment(seat_select,title,num,value,sum_cost,poster)" type="button" class="btn btn-info">Next</button>
             </div>
             <div class="col-3 height">
               <h4 style="right: 38px;position: absolute;">Total : {{sum_cost}} ฿</h4>
@@ -78,7 +81,7 @@
 <script>
   export default {
     name: "Select",
-    props: ["value", "title"],
+    props: ["value", "title","mail","poster"],
     data() {
       return {
         seats: [{
@@ -435,8 +438,8 @@
       clear_seat: function () {
         this.seat_select = [];
       },
-      goPlayment: function (seat_select,title,num,value,sum_cost) {
-        this.$router.push({ name: "Payment", params: { seat_select,title,num,value,sum_cost } });
+      goPlayment: function (seat_select,title,num,value,sum_cost,mail,poster) {
+        this.$router.push({ name: "Payment", params: { seat_select,title,num,value,sum_cost,mail,poster } });
       }
       // saveLocal() {
       //   const parsed = JSON.stringify(this.seat_select);
