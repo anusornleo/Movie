@@ -4,7 +4,7 @@
 <template>
   <div class="body_ton">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Logo Cinema</a>
+      <a class="navbar-brand" href="#">Get A Cinema</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -20,7 +20,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">
+            <a class="nav-link" @click="goLogin">
               Login as {{mail}}
               <span class="sr-only">(current)</span>
             </a>
@@ -43,7 +43,7 @@
     <br>
     <br>
     <div class="container" style="padding: 25px;">
-      <h2>Welcome {{ mail }}, What do you want to watch</h2>
+      <h2>Welcome {{ mail }} What do you want to watch</h2>
       <br>
       <div v-for="movie in filteredBlogs" :key="movie.id" class="img-container">
         <img class="movie-list" v-bind:src="movie.poster" alt="Click to see review">
@@ -87,6 +87,7 @@ export default {
     return {
       ac_display: "none",
       searchFilter: "",
+      mail:'',
       movie_list: [
         {
           title: "star war 8",
@@ -94,7 +95,8 @@ export default {
           poster:
             "https://lh3.googleusercontent.com/8Nb17-RgjEf0rkZn36nDoUGaSuTBc59oSFfp2gP_gxmxpCrylzOWm2IZs8fyu8o-vALEQV8T_ixH_NuvRsD8tuitQMIX6c1Fqo7hllHaoQKDDccPE5ai4_ooZRyxaB083Z_VqAf2Cd3yDYxzrKC2Z-nCCSIjcMNFm4jdVkqESYi6c1siX2pxzApQ9TdHouZAj6ssUNiNBGPZpFFBBz8TFNxg9YPCEvj_O3YflzJj6OOTZyeXLGLN1lGnxn97H1l0cm1rijF41KwD_ramcJKV9yX80jsbzPbEj-EWe8dntDTYtJOlvmsz6nAM1_JSOBQmpa7QNPJ7AXAr86CEF_XEfPpLHeTnSW7BiW9Q_TLzFr-ylcpUjSLuZ7ux8-3KxkYOohdUbrQf200i3M0CaCf0SmWzAALCRnpAxaOJohLkX-cqBMFndUbfxItslqlM3edlV0Jj5I6HzhMI_PMV1PpBKlcELj5kq_ZVGXzkoL6TT1fqJ7bAjKvLCCcNu5EzDV0HKLSA8E3qfYwaNiynljV0dt2RozVD8dPXcN5CdsGm8fSKqz97Vrf8yJecduOfZhqL2KTgCZwvT0iuhdEqt-eQGFmsf3wsM-5Aq2V0N0chcIIjOfDdrI3ltfIXq0e_AESkRwGoVNdg1El-cA2_8lf9N7iIlpVQfls=w1920-h600-no",
           text: "",
-          poster_poetait: "https://starwarsblog.starwars.com/wp-content/uploads/sites/6/2017/10/the-last-jedi-theatrical-blog.jpg",
+          poster_poetait:
+            "https://starwarsblog.starwars.com/wp-content/uploads/sites/6/2017/10/the-last-jedi-theatrical-blog.jpg",
           all_time: [
             { time: "10:10", theater: "1", date: "27 FEB 2019" },
             { time: "11:30", theater: "3", date: "27 FEB 2019" },
@@ -110,7 +112,8 @@ export default {
           poster:
             "https://preposterousprose.files.wordpress.com/2018/03/avengers-infinity-war-landscape.jpg?w=1184&#038;h=416&#038;crop=1",
           text: "",
-          poster_poetait: "https://images-na.ssl-images-amazon.com/images/I/A1t8xCe9jwL._SL1500_.jpg",
+          poster_poetait:
+            "https://images-na.ssl-images-amazon.com/images/I/A1t8xCe9jwL._SL1500_.jpg",
           all_time: [
             { time: "10:10", theater: "1", date: "27 FEB 2019" },
             { time: "11:30", theater: "3", date: "27 FEB 2019" },
@@ -125,7 +128,8 @@ export default {
           subTitle: "Aquarman",
           poster: "https://i.imgur.com/YaGLpcQ.png",
           text: "",
-          poster_poetait: "https://media1.popsugar-assets.com/files/thumbor/G8WL9ct5Wo7q7Zaug8dd99GptbY/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2018/07/16/938/n/1922283/d757511d5b4d0eb588dbe8.16610880_/i/Aquaman-Movie-Poster-Memes-July-2018.jpg",
+          poster_poetait:
+            "https://media1.popsugar-assets.com/files/thumbor/G8WL9ct5Wo7q7Zaug8dd99GptbY/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2018/07/16/938/n/1922283/d757511d5b4d0eb588dbe8.16610880_/i/Aquaman-Movie-Poster-Memes-July-2018.jpg",
           all_time: [
             { time: "10:10", theater: "1", date: "27 FEB 2019" },
             { time: "11:30", theater: "3", date: "27 FEB 2019" },
@@ -141,7 +145,8 @@ export default {
           poster:
             "https://www.joblo.com/assets/images/oldsite/posters/images/full/interstellar-banner.jpg",
           text: "",
-          poster_poetait: "https://images-na.ssl-images-amazon.com/images/I/716P1xCmnPL._SL1020_.jpg",
+          poster_poetait:
+            "https://images-na.ssl-images-amazon.com/images/I/716P1xCmnPL._SL1020_.jpg",
           all_time: [
             { time: "10:10", theater: "1", date: "27 FEB 2019" },
             { time: "11:30", theater: "3", date: "27 FEB 2019" },
@@ -157,7 +162,8 @@ export default {
           poster:
             "https://lumiere-a.akamaihd.net/v1/images/movie-page_desktop_hero-banner_ea72abd0.png?region=0,0,2000,835&width=1200&optimize=true",
           text: "",
-          poster_poetait: "https://cdn.images.express.co.uk/img/dynamic/36/590x/secondary/Captain-Marvel-international-poster-1724182.jpg?r=1549376910515",
+          poster_poetait:
+            "https://cdn.images.express.co.uk/img/dynamic/36/590x/secondary/Captain-Marvel-international-poster-1724182.jpg?r=1549376910515",
           all_time: [
             { time: "10:10", theater: "1", date: "27 FEB 2019" },
             { time: "11:30", theater: "3", date: "27 FEB 2019" },
@@ -173,7 +179,8 @@ export default {
           poster:
             "https://www.seanpaune.com/wp-content/uploads/2018/04/Rampage-Movie-Banner-1740xauto.jpg",
           text: "",
-          poster_poetait: "https://images-na.ssl-images-amazon.com/images/I/61OnqbS86XL.jpg",
+          poster_poetait:
+            "https://images-na.ssl-images-amazon.com/images/I/61OnqbS86XL.jpg",
           all_time: [
             { time: "10:10", theater: "1", date: "27 FEB 2019" },
             { time: "11:30", theater: "3", date: "27 FEB 2019" },
@@ -188,7 +195,8 @@ export default {
           subTitle: "Friend Zone",
           poster: "https://i.imgur.com/8ptcqPF.jpg",
           text: "",
-          poster_poetait: "https://f.ptcdn.info/916/061/000/pl7cyadm6N6kVq6zp0D-o.jpg",
+          poster_poetait:
+            "https://f.ptcdn.info/916/061/000/pl7cyadm6N6kVq6zp0D-o.jpg",
           all_time: [
             { time: "10:10", theater: "1", date: "27 FEB 2019" },
             { time: "11:30", theater: "3", date: "27 FEB 2019" },
@@ -208,9 +216,18 @@ export default {
     off: function() {
       console.log("off");
     },
-    goSelect: function(value, title, mail,poster) {
+    goSelect: function(value, title, mail, poster) {
+      this.mail = mail
+      const parsed = JSON.stringify(this.mail);
+      localStorage.setItem("mail", parsed);
       console.log(value, title);
-      this.$router.push({ name: "Select", params: { value, title, mail,poster } });
+      this.$router.push({
+        name: "Select",
+        params: { value, title, mail, poster }
+      });
+    },
+    goLogin: function() {
+      this.$router.push("Login");
     }
   },
   computed: {
@@ -218,6 +235,16 @@ export default {
       return this.movie_list.filter(movie => {
         return movie.title.match(this.searchFilter.toLowerCase());
       });
+    }
+  },
+  mounted() {
+    this.mail = mail
+    if (localStorage.getItem("mail")) {
+      try {
+        this.mail = JSON.parse(localStorage.getItem("mail"));
+      } catch (e) {
+        localStorage.removeItem("mail");
+      }
     }
   }
 };

@@ -31,7 +31,7 @@
                   <!-- <img src="../components/img/notes.png" alt="debit card" width="10%"> -->
                 </h5>
                 <p class="card-text">Pay with cash on the counter of the cinema.</p>
-                <a @click="goConfirm(seat_select,title,num,value,sum_cost,card_num,poster)" class="btn btn-primary"
+                <a @click="goConfirm(seat_select,title,num,value,sum_cost,mail,poster,card_num)" class="btn btn-primary"
                   style="color:white;">Go To Next Step</a>
               </div>
             </div>
@@ -341,7 +341,7 @@
         });
       },
       goHome: function (){
-        this.$router.push("home");
+        this.$router.push("/");
       }
     },
     computed: {},

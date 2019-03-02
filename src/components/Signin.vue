@@ -2,11 +2,11 @@
 <template>
   <div class="bg bg-dark">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Logo Cinema</a>
+      <a class="navbar-brand" href="#">Get A Cinema</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="#" @click="goHome">
               Home
               <span class="sr-only">(current)</span>
             </a>
@@ -169,7 +169,10 @@ export default {
       }
     },
     goLogin: function() {
-      this.$router.push("/");
+      this.$router.push("Login");
+    },
+    goHome: function(){
+      // this.$router.push("/");
     },
     // add_user: function() {
     //   this.user_list.push({

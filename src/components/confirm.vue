@@ -7,13 +7,13 @@
         <li class="step current">STEP3</li>
       </nav>
 
-    <ul class='social' style="position: absolute;">
-      <li>
-        <a class="fa fa-facebook" @click="goHome" style="border-radius: 10%;">  
-          <img src="https://image.flaticon.com/icons/svg/20/20176.svg">  
-        </a> 
-      </li>
-    </ul>
+      <ul class="social" style="position: absolute;">
+        <li>
+          <a class="fa fa-facebook" @click="goHome" style="border-radius: 10%;">
+            <img src="https://image.flaticon.com/icons/svg/20/20176.svg">
+          </a>
+        </li>
+      </ul>
 
       <!-- <div class="container" ref="main" v-bind:style="{position: type, top: navSize + 'px' }">
         <div class="row">
@@ -42,7 +42,7 @@
                   <img class="portait_poster" :src="poster">
                 </div>
                 <div class="col-md-8">
-                  <h4>Email Info:</h4>
+                  <h4>Email Info: {{mail}}</h4>
                   <h4>Title: {{title}}</h4>
                   <h4>Theater: {{value.theater}}</h4>
                   <h4>Time: {{value.time}}</h4>
@@ -53,8 +53,8 @@
                     @click="goPrint(seat_select,title,num,value,sum_cost,mail)"
                     type="submit"
                     class="btn btn-primary"
-                  >Confirm</button>
-                  <button type="submit" class="btn btn-primary">Cancle</button>
+                  >Print Ticket</button>
+                  <button @click="goHome" type="submit" class="btn btn-danger">Refund</button>
                 </div>
               </div>
             </div>
@@ -197,7 +197,7 @@ body {
   width: 20%;
 }
 .card_custom {
-  width: 30rem;
+  width: 46rem;
   margin: auto;
   top: 11rem;
 }
@@ -211,7 +211,7 @@ body {
   height: 220px;
   margin-top: 273px;
   position: fixed;
-  perspective: 1000px
+  perspective: 1000px;
 }
 
 .social li a {
@@ -220,26 +220,37 @@ body {
   width: 60px;
   background: #26bfa1;
   border-bottom: 1px solid #333;
-  font: normal normal normal
-  16px/20px 
-  'FontAwesome', 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font: normal normal normal 16px/20px "FontAwesome", "Source Sans Pro",
+    Helvetica, Arial, sans-serif;
   color: #fff;
   -webkit-font-smoothing: antialiased;
   padding: 10px;
   text-decoration: none;
   text-align: center;
   border-radius: 30px;
-  transition: background .5s ease .300ms
+  transition: background 0.5s ease 0.3ms;
 }
 
-.social li:first-child a:hover { background: #3b5998 }
-.social li:nth-child(2) a:hover { background: #00acee }
-.social li:nth-child(3) a:hover { background: #ea4c89 }
-.social li:nth-child(4) a:hover { background: #dd4b39 }
+.social li:first-child a:hover {
+  background: #3b5998;
+}
+.social li:nth-child(2) a:hover {
+  background: #00acee;
+}
+.social li:nth-child(3) a:hover {
+  background: #ea4c89;
+}
+.social li:nth-child(4) a:hover {
+  background: #dd4b39;
+}
 
-.social li:first-child a { border-radius: 0 5px 0 0 }
-.social li:last-child a { border-radius: 0 0 5px 0 }
-    
+.social li:first-child a {
+  border-radius: 0 5px 0 0;
+}
+.social li:last-child a {
+  border-radius: 0 0 5px 0;
+}
+
 .social li a span {
   width: 100px;
   float: left;
@@ -253,11 +264,11 @@ body {
   opacity: 0;
   transform: rotateY(45deg);
   border-radius: 5px;
-  transition: all .5s ease .300ms
+  transition: all 0.5s ease 0.3ms;
 }
 
 .social li span:after {
-  content: '';
+  content: "";
   display: block;
   width: 0;
   height: 0;
@@ -273,7 +284,7 @@ body {
 .social li a:hover span {
   visibility: visible;
   opacity: 1;
-  transform: rotateY(0)
+  transform: rotateY(0);
 }
 </style>
 
@@ -286,9 +297,9 @@ export default {
     "num",
     "value",
     "sum_cost",
-    "card_num",
     "mail",
-    "poster"
+    "poster",
+    "card_num"
   ],
   data() {
     return {
@@ -313,8 +324,8 @@ export default {
         params: { seat_select, title, num, value, sum_cost, mail }
       });
     },
-    goHome: function (){
-      this.$router.push("home");
+    goHome: function() {
+      this.$router.push("/");
     }
   }
 };

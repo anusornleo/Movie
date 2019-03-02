@@ -25,7 +25,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/login',
       name: 'Login',
       component: Login,
       props: true
@@ -48,7 +48,7 @@ export default new Router({
       props: true
     },
     {
-      path: '/home',
+      path: '/',
       name: 'Home',
       component: Home,
       props: true

@@ -456,7 +456,7 @@
         }
       },
       goHome: function (){
-        this.$router.push("home");
+        this.$router.push("/");
       }
       // saveLocal() {
       //   const parsed = JSON.stringify(this.seat_select);
